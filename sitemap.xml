@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Place this file at your domain root (e.g. https://yourdomain.com/sitemap.xml) -->
+<!-- Replace "https://yourdomain.com" throughout with your real domain once live -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/resources/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url><loc>https://yourdomain.com/provo-headstone-cleaning.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://yourdomain.com/orem-headstone-cleaning.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://yourdomain.com/springville-headstone-cleaning.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://yourdomain.com/american-fork-headstone-cleaning.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <url><loc>https://yourdomain.com/resources/how-to-clean-a-headstone-without-damage.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/is-d2-biological-solution-safe-for-headstones.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/can-you-use-bleach-or-vinegar-on-a-gravestone.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/how-often-should-a-headstone-be-cleaned.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/headstone-cleaning-cost.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/cemetery-permission-headstone-cleaning-rules.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/how-to-remove-lichen-and-moss-from-a-headstone.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/cleaning-granite-marble-bronze-markers.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/can-you-pressure-wash-a-gravestone.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/best-time-of-year-to-clean-a-headstone-in-utah.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/maintaining-a-family-grave-from-out-of-state.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/what-is-a-headstone-cleaning-subscription.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/how-to-clean-an-old-historic-headstone.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/cleaning-a-bronze-veteran-military-marker.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://yourdomain.com/resources/utah-county-cemetery-rules-for-cleaning-and-decorating.html</loc><lastmod>2026-07-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+</urlset>

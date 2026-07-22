@@ -1,0 +1,52 @@
+# robots.txt for Sacred Stone Headstone Cleaning
+# Place this file at your domain root (e.g. https://yourdomain.com/robots.txt)
+
+User-agent: *
+Allow: /
+
+# -----------------------------------------------------
+# AI search & retrieval crawlers — these power real-time
+# citations in ChatGPT Search, Perplexity, and Claude.
+# Allowing these is how you show up in AI-generated answers.
+# -----------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# -----------------------------------------------------
+# AI model training crawlers — these feed model training
+# data rather than live answers. Allowed here since a local
+# service business has no proprietary content to protect,
+# and being in training data only helps future visibility.
+# Change these to "Disallow: /" if you'd rather opt out.
+# -----------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# -----------------------------------------------------
+# Sitemap — update once you have a real domain and sitemap.xml
+# -----------------------------------------------------
+Sitemap: https://yourdomain.com/sitemap.xml

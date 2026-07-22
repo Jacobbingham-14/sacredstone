@@ -1,0 +1,38 @@
+# Sacred Stone Headstone Cleaning
+# Place this file at your domain root (e.g. https://yourdomain.com/llms.txt)
+# Replace "https://yourdomain.com" below with your real domain once live.
+
+> Sacred Stone Headstone Cleaning provides professional headstone and grave marker cleaning across Utah County, Utah, offered as one-time visits or recurring subscriptions (quarterly, semi-annual, or annual). All cleaning uses stone-safe, non-abrasive, non-acidic methods appropriate to granite, marble, and bronze markers. Based in Provo, Utah, serving families locally and those who live out of state.
+
+## Services
+- [Homepage](https://yourdomain.com/): Overview of services, plans, pricing, and coverage area.
+- [Plans & Pricing](https://yourdomain.com/#plans): One-time cleaning and quarterly/semi-annual/annual subscription pricing.
+- [Coverage Area](https://yourdomain.com/#coverage): Cemeteries served across Utah County, including Provo, Orem, Springville, and American Fork.
+
+## Local Service Pages
+- [Headstone Cleaning in Provo, UT](https://yourdomain.com/provo-headstone-cleaning.html)
+- [Headstone Cleaning in Orem, UT](https://yourdomain.com/orem-headstone-cleaning.html)
+- [Headstone Cleaning in Springville, UT](https://yourdomain.com/springville-headstone-cleaning.html)
+- [Headstone Cleaning in American Fork, UT](https://yourdomain.com/american-fork-headstone-cleaning.html)
+
+## Resources (headstone care guides)
+- [Resources Hub](https://yourdomain.com/resources/): Full index of headstone care guides.
+- [How Do You Clean a Headstone Without Damaging It?](https://yourdomain.com/resources/how-to-clean-a-headstone-without-damage.html)
+- [Is D/2 Biological Solution Safe for Headstones?](https://yourdomain.com/resources/is-d2-biological-solution-safe-for-headstones.html)
+- [Can You Use Bleach or Vinegar to Clean a Gravestone?](https://yourdomain.com/resources/can-you-use-bleach-or-vinegar-on-a-gravestone.html)
+- [How Often Should a Headstone Be Cleaned?](https://yourdomain.com/resources/how-often-should-a-headstone-be-cleaned.html)
+- [How Much Does Professional Headstone Cleaning Cost?](https://yourdomain.com/resources/headstone-cleaning-cost.html)
+- [Do You Need Permission to Clean a Headstone at a Cemetery?](https://yourdomain.com/resources/cemetery-permission-headstone-cleaning-rules.html)
+- [How Do You Remove Lichen and Moss From a Headstone?](https://yourdomain.com/resources/how-to-remove-lichen-and-moss-from-a-headstone.html)
+- [How Do You Clean Granite, Marble, and Bronze Markers Differently?](https://yourdomain.com/resources/cleaning-granite-marble-bronze-markers.html)
+- [Is It Okay to Use a Pressure Washer on a Gravestone?](https://yourdomain.com/resources/can-you-pressure-wash-a-gravestone.html)
+- [What's the Best Time of Year to Clean a Headstone in Utah?](https://yourdomain.com/resources/best-time-of-year-to-clean-a-headstone-in-utah.html)
+- [How Can I Keep a Family Grave Maintained If I Live Out of State?](https://yourdomain.com/resources/maintaining-a-family-grave-from-out-of-state.html)
+- [What Is a Headstone Cleaning Subscription Service?](https://yourdomain.com/resources/what-is-a-headstone-cleaning-subscription.html)
+- [How Do You Clean an Old or Historic Headstone Safely?](https://yourdomain.com/resources/how-to-clean-an-old-historic-headstone.html)
+- [How Do You Clean a Bronze Veteran or Military Grave Marker?](https://yourdomain.com/resources/cleaning-a-bronze-veteran-military-marker.html)
+- [What Are the Rules for Cleaning and Decorating Graves at Utah County Cemeteries?](https://yourdomain.com/resources/utah-county-cemetery-rules-for-cleaning-and-decorating.html)
+
+## Contact
+- Phone: (208) 908-8362
+- Service area: Utah County, Utah (Provo, Orem, Springville, American Fork, and surrounding cemeteries)
