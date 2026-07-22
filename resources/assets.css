@@ -53,7 +53,20 @@ p{margin:0 0 16px;}
   padding:8px 18px; font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap;
 }
 .phone-pill:hover{background:var(--moss-dark); color:var(--ivory-warm);}
-@media (max-width:700px){ .nav{display:none;} }
+.nav-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
+
+@media (max-width:700px){
+  .nav{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--ivory-warm);
+    flex-direction:column; gap:0;
+    border-bottom:1px solid var(--taupe);
+    max-height:0; overflow:hidden;
+  }
+  .nav.open{max-height:400px;}
+  .nav a{padding:14px 28px; border-top:1px solid var(--mist);}
+  .nav-toggle{display:block;}
+}
 
 /* Article layout */
 .article-wrap{max-width:700px; margin:0 auto; padding:56px 28px 80px;}

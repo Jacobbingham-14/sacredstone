@@ -26,12 +26,15 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="../index.html" class="wordmark">Sacred Stone</a>
-    <nav class="nav">
+    <nav class="nav" id="siteNav">
       <a href="../index.html#how">How It Works</a>
       <a href="../index.html#plans">Plans</a>
       <a href="index.html">Resources</a>
     </nav>
-    <a class="phone-pill" href="tel:+12089088362">(208) 908-8362</a>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="phone-pill" href="tel:+12089088362">(208) 908-8362</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
   </div>
 </header>
 
@@ -77,5 +80,20 @@
 </main>
 
 <footer>Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; Serving Utah County</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 </body>
 </html>
