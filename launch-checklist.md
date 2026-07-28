@@ -22,7 +22,8 @@
 ## Phase 3 — Local visibility
 
 - [ ] **Claim your Google Business Profile** as a service-area business (hide your address, list Provo/Orem/Springville/American Fork as service areas). Pick the closest matching category. Never keyword-stuff the business name.
-- [ ] **Get listed** on Yelp, Nextdoor, BBB, and the Utah County Chamber of Commerce.
+- [ ] **Get listed** on Yelp and Nextdoor (free).
+- [ ] *(Later, not prelaunch — revisit once revenue/reviews exist)* BBB accreditation (~$400-600+/yr) and Utah Valley Chamber of Commerce (~$1,500+/yr).
 - [ ] **Reach out to local funeral homes** for referral partnerships — a natural source of both leads and a legitimate backlink to your site.
 - [ ] **Build a review pipeline** — add a one-line review request to your after-visit photo email. Never offer a discount in exchange for a review; Google treats incentivized reviews as grounds for account suspension.
 - [ ] **Keep resource article dates current** every few months, and add new ones as real customer questions come up.
