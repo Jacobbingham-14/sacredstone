@@ -16,7 +16,7 @@
 
 - [ ] **Buy a domain and set up hosting.**
 - [ ] **Set up Stripe** and paste your real Payment Links into the pricing card buttons (currently placeholders — see the HTML comments marking each one).
-- [ ] **Set up Formspree** for the new `contact.html` lead form. Create a free form at formspree.io, replace `YOUR_FORM_ID` in `contact.html` with your real form ID, and set the form's "Redirect URL" in the Formspree dashboard to `https://yourdomain.com/thank-you.html`.
+- [x] **Formspree form ID wired up** (`xrenjolw`) in `contact.html`. Still to do once the domain is live: set this form's "Redirect URL" in the Formspree dashboard to `https://yourdomain.com/thank-you.html` so submitters land on your confirmation page instead of Formspree's default one.
 - [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
 
