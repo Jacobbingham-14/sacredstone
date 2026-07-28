@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent | Sacred Stone Headstone Cleaning</title>
+<meta name="robots" content="noindex,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="resources/assets.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="wordmark">Sacred Stone</a>
+    <nav class="nav" id="siteNav">
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#plans">Plans</a>
+      <a href="resources/index.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="phone-pill" href="tel:+12089088362">(208) 908-8362</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="confirm-wrap">
+  <p class="eyebrow">Message Sent</p>
+  <h1>Thank you — we've got your message.</h1>
+  <p>We typically respond within one business day. If it's urgent, call or text us directly at <a href="tel:+12089088362" style="color:var(--moss-dark); font-weight:600;">(208) 908-8362</a>.</p>
+  <a href="index.html" class="btn" style="background:var(--moss-dark); color:var(--quartz);">Back to Home</a>
+</main>
+
+<footer>Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; Serving Utah County</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>

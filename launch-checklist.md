@@ -8,14 +8,15 @@
 - [ ] **Get an EIN** from the IRS (free, takes minutes online). You'll need it to open a business bank account and to set up Stripe as a business rather than an individual.
 - [ ] **Open a separate business bank account.** Mixing personal and business funds undermines the liability protection an LLC is supposed to give you.
 - [ ] **Check Provo City's business licensing requirements.** Many Utah cities require a license even for home-based or service-area businesses — worth a quick call to Provo City's business licensing division to confirm what applies to you.
-- [ ] **Check Utah sales tax obligations.** Whether cleaning services are taxable in Utah isn't something to guess at — a quick call to the Utah State Tax Commission (or a local accountant) will tell you definitively. I'm not a tax advisor, so don't take my word over theirs.
-- [ ] **Get general liability insurance.** Covered in earlier planning — this matters more once you're actively advertising and inviting volume.
-- [ ] **Call each cemetery office** (Provo, Orem, Springville, American Fork, plus Eastlawn Memorial Hills and Timpanogos Memorial Gardens) to confirm there's no permit or vendor-registration requirement, and confirm approved cleaning products.
+- [x] **Check Utah sales tax obligations.** Confirmed: headstone cleaning services are not taxable in Utah.
+- [ ] **Get general liability insurance.** Plan: get this in place before the first paying job, alongside the LLC — not before then.
+- [x] **Call/email each cemetery office** (Provo, Orem, Springville, American Fork, plus Eastlawn Memorial Hills and Timpanogos Memorial Gardens) — outreach sent to all six.
 
 ## Phase 2 — Get the website fully live
 
 - [ ] **Buy a domain and set up hosting.**
 - [ ] **Set up Stripe** and paste your real Payment Links into the pricing card buttons (currently placeholders — see the HTML comments marking each one).
+- [ ] **Set up Formspree** for the new `contact.html` lead form. Create a free form at formspree.io, replace `YOUR_FORM_ID` in `contact.html` with your real form ID, and set the form's "Redirect URL" in the Formspree dashboard to `https://yourdomain.com/thank-you.html`.
 - [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
 
@@ -45,3 +46,4 @@
 - [x] `robots.txt`, `llms.txt`, `sitemap.xml` scaffolded
 - [x] LocalBusiness schema, Open Graph, and Twitter Card tags on homepage
 - [x] 4 city landing pages (Provo, Orem, Springville, American Fork)
+- [x] Contact/lead-capture form (`contact.html`) with confirmation page — pending Formspree form ID
