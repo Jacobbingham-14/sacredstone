@@ -179,9 +179,17 @@
   </div>
 
   <!--
-    FORM BACKEND: posts to the same Formspree form as contact.html (xrenjolw).
-    Once the domain is live, set that form's Redirect URL in the Formspree
-    dashboard to https://yourdomain.com/order-received.html
+    FORM BACKEND — Formspree.
+    Currently posts to the SAME form as contact.html (xrenjolw). Formspree's
+    free tier allows unlimited forms, so create a second one just for orders
+    and swap its ID in below — orders and general questions then land in
+    separate inboxes. See launch-checklist.md Phase 2 for the steps.
+
+    The redirect to order-received.html is handled by the `_next` hidden
+    field, which the script at the bottom of this file fills in from the
+    current domain. That means it works on localhost, on Vercel preview
+    URLs, and on your real domain with nothing to edit. (Formspree's
+    dashboard "redirect" setting is paid-plans-only; `_next` is not.)
   -->
   <form action="https://formspree.io/f/xrenjolw" method="POST" id="orderForm">
     <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
@@ -335,6 +343,19 @@
 
   const el = id => document.getElementById(id);
   const params = new URLSearchParams(location.search);
+
+  /* Send submitters to our own confirmation page instead of Formspree's.
+     Built from the live origin so it needs no editing when the domain
+     changes. If JS is off, the field simply isn't added and Formspree
+     falls back to its own thank-you page — no broken redirect. */
+  (function setRedirect() {
+    if (!/^https?:$/.test(location.protocol)) return;
+    const next = document.createElement('input');
+    next.type = 'hidden';
+    next.name = '_next';
+    next.value = new URL('order-received.html', location.href).href;
+    document.getElementById('orderForm').appendChild(next);
+  })();
 
   /* ── Marker rows ── */
   const MAX_MARKERS = 6;

@@ -16,10 +16,9 @@
 
 - [ ] **Buy a domain and set up hosting.**
 - [x] **Payment: deliberately no Stripe for now.** `order.html` takes an order with no payment at all — you confirm by text, clean, send photos, and get paid by Venmo afterwards. This is set up as a *feature*, not a gap: "you don't pay until you've seen the photos" is something none of the four competitors offers, and it removes the biggest objection a brand-new business faces. Add Stripe later if you want, but keep the pay-after option when you do.
-- [x] **Formspree form ID wired up** (`xrenjolw`) in `contact.html` and `order.html`. Still to do once the domain is live — **note there are now two confirmation pages**, and Formspree only allows one Redirect URL per form:
-  - Simplest: point the form's Redirect URL at `https://yourdomain.com/order-received.html`, since orders matter more than general messages, and delete `thank-you.html`.
-  - Better: create a **second Formspree form** for orders, put its ID in `order.html`, and point form 1 → `thank-you.html`, form 2 → `order-received.html`. This also separates orders from questions in your inbox, which will matter quickly.
-- [ ] **Watch the Formspree free-tier limit (50 submissions/month).** Orders and contact messages both count against it. If you split into two forms, each gets its own allowance.
+- [x] **Confirmation-page redirects: done, and nothing to configure.** Formspree's dashboard "redirect" setting is paid-plans-only, so both forms instead use the `_next` hidden field, which works on the free tier. A few lines of JS on `contact.html` and `order.html` build that value from whatever domain the page is being served from — so it already points at the right place on localhost, on Vercel preview URLs, and on your real domain, with nothing to edit at launch. Verified on both pages.
+- [ ] **Create a second Formspree form, just for orders.** The free tier allows *unlimited* forms, so this costs nothing. Create it, copy the new form ID, and replace `xrenjolw` in the `<form action="...">` of `order.html` only (leave `contact.html` on the original). Orders and general questions then arrive in separate inboxes instead of one mixed pile — worth doing before you get busy.
+- [ ] **Watch the Formspree free-tier limit: 50 submissions/month.** Right now orders and contact messages share one form, so they share one allowance. Splitting into two forms (above) gives each its own.
 - [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
 

@@ -36,12 +36,14 @@
   <p class="meta" style="margin-bottom:34px;">Tell us about the headstone you'd like cared for, and we'll get back to you within one business day.</p>
 
   <!--
-    FORM BACKEND: this form posts to Formspree (form ID xrenjolw).
-    In the Formspree dashboard for this form, set "Redirect URL" to
-    thank-you.html on your live domain once it's live, so submitters
-    land there instead of Formspree's default confirmation page.
+    FORM BACKEND: posts to Formspree (form ID xrenjolw).
+    The redirect to thank-you.html is handled by the `_next` hidden field,
+    which the script at the bottom of this page fills in from the current
+    domain — so it works on localhost and on the live site with nothing to
+    edit. (Formspree's dashboard "redirect" setting is paid-plans-only;
+    `_next` works on the free tier.)
   -->
-  <form action="https://formspree.io/f/xrenjolw" method="POST">
+  <form action="https://formspree.io/f/xrenjolw" method="POST" id="contactForm">
     <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
     <input type="hidden" name="_subject" value="New message from Sacred Stone website">
 
@@ -101,6 +103,17 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Send submitters to our own thank-you page instead of Formspree's.
+  // Built from the live origin so it needs no editing when the domain changes.
+  (function setRedirect() {
+    if (!/^https?:$/.test(location.protocol)) return;
+    const next = document.createElement('input');
+    next.type = 'hidden';
+    next.name = '_next';
+    next.value = new URL('thank-you.html', location.href).href;
+    document.getElementById('contactForm').appendChild(next);
+  })();
 
   // Prefill the message when someone arrives from a pricing button on the
   // homepage. Values sent: "One-Time", "Recurring 1x per year", etc.
