@@ -1,6 +1,48 @@
 # Sacred Stone — Launch Checklist
 
-*Last updated July 2026. This is your internal reference — not meant for the public website.*
+*Last updated August 2026. This is your internal reference — not meant for the public website.*
+
+---
+
+## ⚠️ THE CRITICAL PATH TO ADVERTISING
+
+Read this before anything else. The phases below are organised by *topic*; this is the order things actually have to happen in, and it surfaces one dependency that's easy to miss.
+
+**The dependency:** this checklist has always said "get insurance before the first paying job." Advertising *is* how you get the first paying job. So the LLC-and-insurance chain is no longer a later item — it is on the critical path, and it's the slowest thing on the list. **Start it first, because it runs in the background while you do everything else.**
+
+### Start now (slow, runs in parallel — days to weeks)
+1. **File the LLC** with the Utah Division of Corporations → **get an EIN** (free, minutes) → **open a business bank account** → **get general liability quotes.** This is a chain; each step needs the one before it. Insurance quotes for a two-person service business are usually quick, but the whole chain is still the long pole. *(Phase 1)*
+2. **Call Provo City business licensing** to confirm what a service-area business needs. One phone call, but it can have a waiting period. *(Phase 1)*
+
+### The single highest-value weekend you can spend
+3. **Clean 3–5 real markers, free or discounted — friends' and family's graves are perfect.** Photograph every one, before and after, same spot and same framing. Then ask those people for honest Google reviews of the service they actually received.
+
+   Do not skip or shortcut this. It is the only item on this list that solves **four** problems at once:
+   - You get **real before/after photos** — the biggest gap versus all four competitors, who all have galleries
+   - You get **legitimate reviews** — all four competitors show zero, so three genuine ones puts you ahead
+   - You get **practice** before a paying stranger's family memorial is the first stone you've ever cleaned
+   - You find out what a cleaning **actually takes you in time**, which tells you whether the prices are right
+
+   Everything else on this list is admin. This is the part that decides whether the ads convert.
+
+### Then, to make the site real
+4. **Buy a domain** and deploy. Everything downstream — ads, Google Business Profile, sitemap, `og:url` — is blocked on this.
+5. **Replace every `yourdomain.com`** in `robots.txt`, `llms.txt`, `sitemap.xml`, and the `og:url` in `index.html`. *(Phase 2)*
+6. **Add the real photos** to `#work` and `#about` in `index.html`, and **switch on the testimonial section**. Swap instructions are in the HTML comments at each spot.
+7. **Submit an order to yourself, end to end**, on the live domain. Confirm the email contains the phone number and every marker's details, and that you land on `order-received.html`. *(Phase 4)*
+
+### Then, before the first dollar of ad spend
+8. **Claim the Google Business Profile** and get those reviews pointed at it. For a local service business this matters more than the ads themselves — and ad traffic landing on a review-less profile converts noticeably worse. *(Phase 3)*
+9. **Install conversion tracking.** Placeholders are ready in the `<head>` of `index.html`; without this you cannot tell which ads work. *(Phase 4)*
+10. **Confirm the insurance and LLC from step 1 actually landed** before inviting paid traffic. *(Phase 4)*
+11. **Restore the insurance claim to the site** once the policy is bound — as a dollar figure, not the word "insured." *(Phase 1 note)*
+
+### What is genuinely NOT blocking
+- Stripe. The pay-after-photos flow is deliberate and is a competitive advantage, not a gap.
+- BBB, Chamber of Commerce, Yelp/Nextdoor listings, funeral-home outreach. All worth doing, none blocking.
+- A second Formspree form. Nice for inbox hygiene; the current one works.
+
+---
 
 ## Phase 1 — Foundation (do these first)
 
@@ -21,7 +63,9 @@
 - [ ] **Watch the Formspree free-tier limit: 50 submissions/month.** Right now orders and contact messages share one form, so they share one allowance. Splitting into two forms (above) gives each its own.
 - [ ] **Don't treat the Formspree dashboard as your records — the free plan only keeps 30 days of submission history.** This matters more than it sounds: someone signs up for quarterly care in March, and by May their plot number and marker details are gone from the dashboard. The notification *email* is your durable copy, so never delete those. Better, copy every order into a spreadsheet (name, phone, email, cemetery, plot, marker details, plan, price, next visit due) the day it comes in. That spreadsheet becomes your route list and your renewal calendar — you will need it long before you need a real CRM.
 - [ ] **Set up Gmail filters** so orders don't get lost among questions. The two forms already send distinct subject lines: orders are `NEW ORDER — Sacred Stone`, general messages are `New message from Sacred Stone website`. Filter on those and label/star accordingly.
-- [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
+- [ ] **Replace every `yourdomain.com` placeholder** — it appears in `robots.txt` (the `Sitemap:` line), `llms.txt`, `sitemap.xml` (22 URLs), and the `og:url` meta tag in `index.html`. A find-and-replace across those four files does it.
+- [ ] **Add `order.html` and `order-received.html` to nothing.** Both are deliberately `noindex` — they're form pages, and letting them compete with the homepage for pricing search terms would split your ranking signals. They're correctly absent from `sitemap.xml`; leave them out.
+- [ ] **Add canonical tags** once the domain exists (there are none anywhere right now). Low priority for a site this size, but it's cheap insurance against duplicate-URL issues, e.g. the www vs non-www and trailing-slash variants Vercel will happily serve.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
 
 ## Phase 2.5 — The two assets that beat every competitor (do these early)
@@ -60,9 +104,14 @@ Competitive research (Aug 2026) on Precious Stones, My Clean Headstone, Heritage
 - [ ] **Confirm insurance and business registration are actually in place** (Phase 1) before actively inviting paid traffic and real commercial volume.
 
 ## Already done ✓
-- [x] Homepage built and live-ready (pending domain)
+- [x] Homepage rebuilt around published pricing, a written 30-day guarantee, a comparison table, and an About section naming Jacob and Isaac (pending domain)
+- [x] Interactive pricing: one-time vs recurring 1x/2x/4x, with multi-marker discounts
+- [x] `order.html` order flow with per-marker details and no payment step, plus `order-received.html`
+- [x] Form redirects wired via `_next`, built from the live origin — nothing to configure at launch
 - [x] 15 resource articles with schema markup
 - [x] `robots.txt`, `llms.txt`, `sitemap.xml` scaffolded
-- [x] LocalBusiness schema, Open Graph, and Twitter Card tags on homepage
+- [x] LocalBusiness schema (incl. founders + offer catalog), FAQPage schema, Open Graph and Twitter Card tags
 - [x] 4 city landing pages (Provo, Orem, Springville, American Fork)
-- [x] Contact/lead-capture form (`contact.html`) with confirmation page — pending Formspree form ID
+- [x] Contact form (`contact.html`) with confirmation page, Formspree ID wired
+- [x] Venmo business profile
+- [x] False "Fully insured" claim removed from the live site
