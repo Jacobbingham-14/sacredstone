@@ -67,8 +67,16 @@ Add a rush visit outside our normal monthly schedule for an additional fee — i
 **Gentle, stone-safe methods**
 We never use bleach, acidic cleaners, or abrasive tools. Our process follows preservation-safe practices recommended for granite, marble, and bronze markers.
 
-**Fully insured**
-We carry general liability coverage, because your family's memorial deserves nothing less than careful, professional handling.
+**A price you see first**
+Our rates are printed on the page. If your marker will cost more than the standard rate, you hear it before we start, not after.
+
+<!-- REMOVED, DO NOT RESTORE UNTIL TRUE: a "Fully insured" block lived here.
+     General liability coverage isn't in place yet (see launch-checklist.md
+     Phase 1), so the claim came off the live homepage. Put it back — with the
+     actual coverage limit as a number, e.g. "$1M general liability" — the day
+     the policy is bound. A stated number outperforms the word "insured," and
+     no Utah County competitor states one. -->
+
 
 **Photo proof, every time**
 No guessing whether the work was done — every visit ends with a photo report sent directly to you.

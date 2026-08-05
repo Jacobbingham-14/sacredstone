@@ -16,7 +16,9 @@
     <a href="index.html" class="wordmark">Sacred Stone</a>
     <nav class="nav" id="siteNav">
       <a href="index.html#how">How It Works</a>
-      <a href="index.html#plans">Plans</a>
+      <a href="index.html#plans">Pricing</a>
+      <a href="index.html#work">Our Work</a>
+      <a href="index.html#about">About</a>
       <a href="resources/index.html">Resources</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -99,6 +101,16 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Prefill the message when someone arrives from a pricing button on the
+  // homepage. Values sent: "One-Time", "Recurring 1x per year", etc.
+  const plan = new URLSearchParams(window.location.search).get('plan');
+  if (plan) {
+    const message = document.getElementById('message');
+    message.value = /^Recurring/i.test(plan)
+      ? `Interested in ${plan.replace(/^Recurring\s*/i, 'recurring care, ')}.`
+      : `Interested in a one-time cleaning.`;
+  }
 </script>
 </body>
 </html>

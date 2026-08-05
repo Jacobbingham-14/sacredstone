@@ -3,20 +3,29 @@
   LAUNCH CHECKLIST: see launch-checklist.md in this same folder for the full
   pre-launch and pre-advertising to-do list. Not rendered on the live site —
   kept here for your own reference while editing this file.
+
+  ── PRICING NUMBERS NEED YOUR CONFIRMATION ──
+  One-time visit ............ $65
+  Recurring, 1x / year ...... $60 per visit  ($60 / year)
+  Recurring, 2x / year ...... $50 per visit  ($100 / year)
+  Recurring, 4x / year ...... $45 per visit  ($180 / year)
+  Derived from your $65 base with $65 held as the highest per-visit price.
+  Change them in ONE place: the PRICING object in the script at the bottom
+  of this file. The visible prices, totals and savings all read from it.
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Headstone Cleaning in Provo &amp; Utah County | Sacred Stone</title>
-<meta name="description" content="Professional headstone cleaning across Utah County — Provo, Orem, Springville, American Fork. One-time visits or quarterly/semi-annual/annual subscriptions, with photo proof after every cleaning.">
+<meta name="description" content="Headstone cleaning across Utah County — Provo, Orem, Springville, American Fork. Prices published: $65 one-time, or recurring care from $45 a visit. Photo proof after every visit.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sacred Stone Headstone Cleaning | Provo &amp; Utah County">
-<meta property="og:description" content="Professional, stone-safe headstone cleaning across Utah County. One-time visits or subscription plans, with photo proof after every visit.">
+<meta property="og:description" content="Stone-safe headstone cleaning across Utah County, with our prices published up front and photo proof after every visit.">
 <meta property="og:url" content="https://yourdomain.com/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sacred Stone Headstone Cleaning | Provo &amp; Utah County">
-<meta name="twitter:description" content="Professional, stone-safe headstone cleaning across Utah County. One-time visits or subscription plans, with photo proof after every visit.">
+<meta name="twitter:description" content="Stone-safe headstone cleaning across Utah County, with our prices published up front and photo proof after every visit.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,9 +34,9 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Sacred Stone Headstone Cleaning",
-  "description": "Professional headstone and grave marker cleaning across Utah County, offered as one-time visits or subscription plans (quarterly, semi-annual, annual). Stone-safe, non-abrasive methods for granite, marble, and bronze markers.",
+  "description": "Headstone and grave marker cleaning across Utah County, offered as a one-time visit or as recurring care once, twice, or four times a year. Stone-safe, non-abrasive methods for granite, marble, and bronze markers, with a before-and-after photo report after every visit.",
   "telephone": "+1-208-908-8362",
-  "priceRange": "$65-$400",
+  "priceRange": "$45-$65",
   "areaServed": [
     {"@type":"City","name":"Provo, UT"},
     {"@type":"City","name":"Orem, UT"},
@@ -39,7 +48,35 @@
     "addressLocality": "Provo",
     "addressRegion": "UT",
     "addressCountry": "US"
+  },
+  "founder": [
+    {"@type":"Person","name":"Jacob Bingham"},
+    {"@type":"Person","name":"Isaac Otto"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Headstone cleaning",
+    "itemListElement": [
+      {"@type":"Offer","name":"One-time headstone cleaning","price":"65","priceCurrency":"USD"},
+      {"@type":"Offer","name":"Recurring care — once a year","price":"60","priceCurrency":"USD"},
+      {"@type":"Offer","name":"Recurring care — twice a year","price":"50","priceCurrency":"USD"},
+      {"@type":"Offer","name":"Recurring care — four times a year","price":"45","priceCurrency":"USD"}
+    ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How much does headstone cleaning cost?","acceptedAnswer":{"@type":"Answer","text":"A one-time cleaning is $65. Recurring care is $60 a visit once a year, $50 a visit twice a year, or $45 a visit four times a year. Unusually large or badly weathered markers may cost more, and we tell you before we do the work, never after."}},
+    {"@type":"Question","name":"Will cleaning damage the headstone?","acceptedAnswer":{"@type":"Answer","text":"No. We use gentle, non-ionic cleaning solutions made specifically for cemetery monuments, the same standards used by preservation professionals. Nothing abrasive, nothing acidic, no bleach, and no pressure washing."}},
+    {"@type":"Question","name":"How do I know the work was actually done?","acceptedAnswer":{"@type":"Answer","text":"Every visit ends with a before-and-after photo report sent to you, dated, so you can see the marker's condition yourself without driving to the cemetery."}},
+    {"@type":"Question","name":"What if I am not happy with the result?","acceptedAnswer":{"@type":"Answer","text":"Tell us within 30 days of the photo report and we come back and clean it again at no charge. If it still is not right, we refund that visit."}},
+    {"@type":"Question","name":"Can I cancel a recurring plan anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. Recurring care can be paused or canceled before your next scheduled visit, with no penalty and no cancellation fee."}},
+    {"@type":"Question","name":"Do you need the exact plot location?","acceptedAnswer":{"@type":"Answer","text":"It helps, but is not required. We can usually locate a grave from the cemetery, the name, and an approximate date if you do not have the section and lot number."}}
+  ]
 }
 </script>
 <style>
@@ -108,7 +145,7 @@
     text-decoration:none;
     white-space:nowrap;
   }
-  .nav{display:flex; gap:28px;}
+  .nav{display:flex; gap:24px;}
   .nav a{
     text-decoration:none;
     font-size:14.5px;
@@ -131,7 +168,7 @@
   .phone-pill:hover{background:var(--moss-dark); color:var(--ivory-warm);}
   .nav-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
 
-  @media (max-width:820px){
+  @media (max-width:940px){
     .nav{
       position:absolute; top:100%; left:0; right:0;
       background:var(--ivory-warm);
@@ -139,7 +176,7 @@
       border-bottom:1px solid var(--taupe);
       max-height:0; overflow:hidden;
     }
-    .nav.open{max-height:400px;}
+    .nav.open{max-height:460px;}
     .nav a{padding:14px 28px; border-top:1px solid var(--mist);}
     .nav-toggle{display:block;}
   }
@@ -149,11 +186,23 @@
     display:grid; grid-template-columns: 1.1fr 0.9fr;
     gap:60px;
     align-items:center;
-    padding:72px 28px 88px;
+    padding:72px 28px 60px;
   }
   .hero h1{font-size:clamp(34px,4.4vw,52px); line-height:1.12; margin-bottom:22px;}
-  .lede{font-size:17.5px; max-width:46ch; color:var(--ink); opacity:.86; margin-bottom:32px;}
+  .lede{font-size:17.5px; max-width:46ch; color:var(--ink); opacity:.86; margin-bottom:30px;}
   .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+
+  .price-flag{
+    display:inline-flex; align-items:baseline; gap:9px;
+    background:var(--quartz);
+    border:1px solid var(--mist);
+    border-left:3px solid var(--moss-dark);
+    border-radius:6px;
+    padding:11px 16px;
+    margin-bottom:28px;
+    font-size:14.5px;
+  }
+  .price-flag strong{font-family:var(--serif); font-size:20px; font-weight:600; color:var(--moss-dark);}
 
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
@@ -164,10 +213,11 @@
     text-decoration:none;
     border:1px solid transparent;
     cursor:pointer;
+    font-family:var(--sans);
   }
   .btn-primary{background:var(--moss-dark); color:var(--quartz);}
   .btn-primary:hover{background:var(--moss);}
-  .btn-ghost{border-color:var(--moss-dark); color:var(--moss-dark);}
+  .btn-ghost{border-color:var(--moss-dark); color:var(--moss-dark); background:none;}
   .btn-ghost:hover{background:var(--moss-dark); color:var(--quartz);}
 
   @media (max-width:900px){
@@ -185,14 +235,33 @@
     letter-spacing:.02em;
   }
 
+  /* Trust strip */
+  .trust-strip{
+    border-top:1px solid var(--mist);
+    border-bottom:1px solid var(--mist);
+    background:var(--ivory-warm);
+  }
+  .trust-strip-inner{
+    max-width:var(--max); margin:0 auto; padding:20px 28px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  .trust-strip-item{
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; font-weight:500; opacity:.9;
+  }
+  .trust-strip-item svg{width:17px; height:17px; flex-shrink:0; color:var(--moss-dark);}
+  @media (max-width:820px){ .trust-strip-inner{grid-template-columns:1fr 1fr; gap:14px;} }
+  @media (max-width:480px){ .trust-strip-inner{grid-template-columns:1fr;} }
+
   /* Ridge divider */
   .ridge{display:block; width:100%; height:40px; margin:0;}
   .ridge path{fill:none; stroke:var(--taupe); stroke-width:1.5;}
 
   /* Section shell */
   section.block{padding:76px 28px;}
-  .block-head{text-align:center; max-width:640px; margin:0 auto 52px;}
+  .block-head{text-align:center; max-width:660px; margin:0 auto 52px;}
   .block-head h2{font-size:clamp(28px,3vw,36px);}
+  .block-head .sub{font-size:16.5px; opacity:.82; margin-top:14px;}
 
   /* How it works */
   .steps{
@@ -208,41 +277,158 @@
   @media (max-width:900px){ .steps{grid-template-columns:1fr 1fr; row-gap:40px;} }
   @media (max-width:560px){ .steps{grid-template-columns:1fr;} }
 
-  /* Pricing */
-  .plans{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
-    max-width:var(--max); margin:0 auto;
+  /* ── Pricing chooser ── */
+  .pricing{max-width:820px; margin:0 auto;}
+  .mode-tabs{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border:1px solid var(--mist); background:var(--ivory);
+    border-radius:8px; padding:5px; margin-bottom:32px;
   }
-  .plan-card{
-    background:var(--ivory-warm);
+  .mode-tab{
+    appearance:none; border:none; background:none; cursor:pointer;
+    font-family:var(--sans); font-size:15px; font-weight:600; color:var(--ink);
+    padding:13px 12px; border-radius:6px; opacity:.7;
+    transition:background .16s ease, color .16s ease, opacity .16s ease;
+  }
+  .mode-tab[aria-selected="true"]{background:var(--moss-dark); color:var(--quartz); opacity:1;}
+
+  .price-panel{
+    background:var(--quartz);
     border:1px solid var(--mist);
     border-radius:10px;
-    padding:30px 24px;
-    display:flex; flex-direction:column;
-    position:relative;
+    padding:38px 34px;
   }
-  .plan-card.featured{border-color:var(--moss-dark); background:var(--quartz);}
-  .badge{
-    position:absolute; top:-13px; left:24px;
-    background:var(--moss-dark); color:var(--quartz);
-    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    padding:5px 12px; border-radius:999px; font-weight:600;
-  }
-  .plan-card h3{font-size:21px; margin-bottom:6px;}
-  .plan-price{font-family:var(--serif); font-size:32px; margin:12px 0 4px;}
-  .plan-freq{font-size:13px; opacity:.7; margin-bottom:18px;}
-  .plan-desc{font-size:14px; opacity:.85; margin-bottom:24px; flex-grow:1;}
-  .plan-card .btn{width:100%; margin-top:auto;}
-  @media (max-width:900px){ .plans{grid-template-columns:1fr 1fr;} }
-  @media (max-width:560px){ .plans{grid-template-columns:1fr;} }
+  .price-panel[hidden]{display:none;}
 
-  .rush-note{
-    max-width:var(--max); margin:36px auto 0;
-    text-align:center; font-size:14.5px; opacity:.8;
-    border-top:1px solid var(--mist); padding-top:28px;
+  .freq-label{
+    font-size:12.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--moss-dark); font-weight:600; margin-bottom:14px;
+  }
+  .freq-options{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:32px;}
+  .freq-opt{
+    appearance:none; cursor:pointer; font-family:var(--sans);
+    background:var(--ivory-warm); border:1px solid var(--mist);
+    border-radius:8px; padding:16px 12px; text-align:center; color:var(--ink);
+    transition:border-color .16s ease, background .16s ease;
+  }
+  .freq-opt:hover{border-color:var(--taupe);}
+  .freq-opt[aria-checked="true"]{border-color:var(--moss-dark); border-width:2px; background:var(--ivory-warm); padding:15px 11px;}
+  .freq-opt .ft{display:block; font-family:var(--serif); font-size:26px; line-height:1; margin-bottom:6px;}
+  .freq-opt .fl{display:block; font-size:13px; opacity:.78;}
+
+  .price-readout{
+    display:flex; align-items:baseline; flex-wrap:wrap; gap:10px 14px;
+    border-top:1px solid var(--mist); padding-top:26px;
+  }
+  .price-big{font-family:var(--serif); font-size:52px; line-height:1; color:var(--ink);}
+  .price-unit{font-size:15px; opacity:.75;}
+  .price-total{font-size:14.5px; opacity:.8; width:100%;}
+  .save-badge{
+    display:inline-block; background:var(--moss-dark); color:var(--quartz);
+    font-size:11.5px; letter-spacing:.07em; text-transform:uppercase; font-weight:600;
+    padding:5px 11px; border-radius:999px;
+  }
+  .save-badge[hidden]{display:none;}
+  .price-note{font-size:14px; opacity:.8; margin-top:22px; max-width:56ch;}
+  .price-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;}
+
+  @media (max-width:600px){
+    .price-panel{padding:28px 22px;}
+    .freq-options{grid-template-columns:1fr; gap:10px;}
+    .freq-opt{display:flex; align-items:baseline; gap:12px; text-align:left;}
+    .freq-opt .ft{margin-bottom:0; font-size:22px;}
+    .price-big{font-size:42px;}
   }
 
-  /* Trust */
+  .price-honesty{
+    max-width:820px; margin:34px auto 0;
+    background:var(--ivory-warm); border:1px solid var(--mist);
+    border-left:3px solid var(--taupe);
+    border-radius:8px; padding:22px 26px;
+    font-size:14.5px; opacity:.9;
+  }
+  .price-honesty strong{display:block; margin-bottom:7px; font-size:15px; opacity:1;}
+
+  /* ── Before / after ── */
+  .ba{max-width:720px; margin:0 auto;}
+  .ba-frame{
+    position:relative; border-radius:10px; overflow:hidden;
+    border:1px solid var(--mist); background:var(--ivory-warm);
+    aspect-ratio:3/2;
+  }
+  .ba-frame svg{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .ba-top{clip-path:inset(0 50% 0 0);}
+  .ba-tag{
+    position:absolute; bottom:14px; z-index:3;
+    font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+    background:rgba(36,48,43,0.78); color:var(--quartz);
+    padding:5px 11px; border-radius:999px; pointer-events:none;
+  }
+  .ba-tag.left{left:14px;}
+  .ba-tag.right{right:14px;}
+  .ba-handle{
+    position:absolute; inset:0; z-index:4;
+    width:100%; margin:0; appearance:none; background:none; cursor:ew-resize;
+  }
+  .ba-handle::-webkit-slider-thumb{
+    appearance:none; width:34px; height:34px; border-radius:50%;
+    background:var(--quartz); border:2px solid var(--moss-dark); cursor:ew-resize;
+  }
+  .ba-handle::-moz-range-thumb{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--quartz); border:2px solid var(--moss-dark); cursor:ew-resize;
+  }
+  .ba-divider{
+    position:absolute; top:0; bottom:0; z-index:2;
+    width:2px; background:var(--quartz); pointer-events:none;
+    transform:translateX(-1px);
+  }
+  .ba-caption{
+    text-align:center; font-size:13.5px; opacity:.7; margin-top:18px; font-style:italic;
+  }
+
+  /* ── Promise ── */
+  .promise{
+    max-width:760px; margin:0 auto; text-align:center;
+    border:1px solid var(--taupe); border-radius:10px;
+    background:var(--quartz); padding:44px 38px;
+  }
+  .promise h3{font-size:clamp(23px,2.6vw,29px); margin-bottom:16px;}
+  .promise p{font-size:16.5px; opacity:.88; max-width:52ch; margin:0 auto;}
+  .promise .sig{
+    font-family:var(--serif); font-style:italic; font-size:17px;
+    margin-top:26px; opacity:.75;
+  }
+  @media (max-width:600px){ .promise{padding:32px 24px;} }
+
+  /* ── Comparison ── */
+  .compare-scroll{overflow-x:auto; max-width:var(--max); margin:0 auto; -webkit-overflow-scrolling:touch;}
+  table.compare{
+    width:100%; min-width:640px; border-collapse:collapse;
+    font-size:14.5px; background:var(--ivory-warm);
+    border:1px solid var(--mist); border-radius:10px; overflow:hidden;
+  }
+  table.compare th, table.compare td{
+    padding:15px 18px; text-align:left; border-bottom:1px solid var(--mist);
+    vertical-align:top;
+  }
+  table.compare thead th{
+    font-family:var(--serif); font-size:16.5px; font-weight:600;
+    background:var(--ivory); border-bottom:1px solid var(--taupe);
+  }
+  table.compare thead th.us{background:var(--moss-dark); color:var(--quartz);}
+  table.compare td.us{background:var(--quartz); font-weight:500;}
+  table.compare tbody th{
+    font-family:var(--sans); font-size:14.5px; font-weight:600; width:31%;
+  }
+  table.compare tbody tr:last-child th,
+  table.compare tbody tr:last-child td{border-bottom:none;}
+  .compare-note{
+    max-width:var(--max); margin:20px auto 0;
+    font-size:13px; opacity:.65; text-align:center;
+  }
+
+  /* Trust grid */
   .trust-grid{
     display:grid; grid-template-columns:repeat(4,1fr); gap:36px;
     max-width:var(--max); margin:0 auto;
@@ -253,6 +439,29 @@
   .trust-item p{font-size:14px; opacity:.82;}
   @media (max-width:900px){ .trust-grid{grid-template-columns:1fr 1fr; row-gap:36px;} }
   @media (max-width:560px){ .trust-grid{grid-template-columns:1fr;} }
+
+  /* ── About ── */
+  .about-grid{
+    display:grid; grid-template-columns:0.8fr 1.2fr; gap:52px;
+    max-width:960px; margin:0 auto; align-items:start;
+  }
+  .about-portrait{
+    border-radius:10px; overflow:hidden; border:1px solid var(--mist);
+    background:var(--ivory-warm); aspect-ratio:4/5;
+  }
+  .about-portrait img{width:100%; height:100%; object-fit:cover; display:block;}
+  .about-portrait svg{width:100%; height:100%; display:block;}
+  .about-copy p{font-size:16.5px; opacity:.9; margin-bottom:18px; max-width:58ch;}
+  .about-copy p:last-child{margin-bottom:0;}
+  .about-name{
+    font-family:var(--serif); font-size:20px; font-weight:600;
+    margin-top:26px; padding-top:20px; border-top:1px solid var(--mist);
+  }
+  .about-role{font-size:14px; opacity:.72; margin-top:3px;}
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr; gap:34px;}
+    .about-portrait{max-width:280px; aspect-ratio:1/1;}
+  }
 
   /* Coverage */
   .coverage-list{
@@ -277,10 +486,10 @@
   }
   summary{
     font-weight:600; font-size:16px; cursor:pointer;
-    list-style:none; display:flex; justify-content:space-between; align-items:center;
+    list-style:none; display:flex; justify-content:space-between; align-items:center; gap:18px;
   }
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:'+'; font-size:20px; color:var(--moss-dark); font-weight:400;}
+  summary::after{content:'+'; font-size:20px; color:var(--moss-dark); font-weight:400; flex-shrink:0;}
   details[open] summary::after{content:'–';}
   details p{margin-top:14px; font-size:14.5px; opacity:.85; max-width:60ch;}
 
@@ -298,10 +507,32 @@
   .final-cta .btn-ghost{border-color:var(--quartz); color:var(--quartz);}
   .final-cta .btn-ghost:hover{background:var(--quartz); color:var(--moss-dark);}
 
-  footer{
-    padding:32px 28px; text-align:center;
-    font-size:13px; opacity:.75;
+  /* Footer */
+  .site-footer{
+    padding:52px 28px 34px;
+    border-top:1px solid var(--mist);
   }
+  .footer-inner{
+    max-width:var(--max); margin:0 auto;
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;
+  }
+  .footer-inner h4{
+    font-family:var(--sans); font-size:12px; letter-spacing:.12em;
+    text-transform:uppercase; font-weight:600; color:var(--moss-dark);
+    margin:0 0 14px;
+  }
+  .footer-inner ul{list-style:none; padding:0; margin:0;}
+  .footer-inner li{margin-bottom:9px; font-size:14px;}
+  .footer-inner a{color:var(--ink); opacity:.8; text-decoration:none;}
+  .footer-inner a:hover{opacity:1; color:var(--moss-dark);}
+  .footer-brand .wordmark{display:inline-block; margin-bottom:12px; font-size:20px;}
+  .footer-brand p{font-size:14px; opacity:.78; max-width:34ch; margin-bottom:14px;}
+  .footer-bottom{
+    max-width:var(--max); margin:38px auto 0; padding-top:22px;
+    border-top:1px solid var(--mist);
+    font-size:13px; opacity:.7; text-align:center;
+  }
+  @media (max-width:760px){ .footer-inner{grid-template-columns:1fr 1fr; gap:32px;} .footer-brand{grid-column:1/-1;} }
 </style>
 
 <!--
@@ -337,9 +568,9 @@
     <a href="#top" class="wordmark">Sacred Stone</a>
     <nav class="nav" id="siteNav">
       <a href="#how">How It Works</a>
-      <a href="#plans">Plans</a>
-      <a href="#trust">Why Us</a>
-      <a href="#coverage">Coverage</a>
+      <a href="#plans">Pricing</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="resources/index.html">Resources</a>
       <a href="contact.html">Contact</a>
@@ -356,8 +587,12 @@
     <p class="eyebrow">Utah County &middot; Headstone Care</p>
     <h1>Their memory deserves care, even when you're far away.</h1>
     <p class="lede">Sacred Stone visits, cleans gently, and sends you photos — so a family memorial across town or across the country is never left unattended.</p>
+    <div class="price-flag">
+      <strong>$65</strong>
+      <span>for a one-time cleaning &mdash; or from $45 a visit with recurring care.</span>
+    </div>
     <div class="cta-row">
-      <a href="#plans" class="btn btn-primary">See Plans &amp; Pricing</a>
+      <a href="#plans" class="btn btn-primary">See Pricing</a>
       <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
       <a href="contact.html" class="btn btn-ghost">Send a Message</a>
     </div>
@@ -395,9 +630,26 @@
   </div>
 </section>
 
-<svg class="ridge" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0,50 L120,20 L220,45 L340,10 L460,42 L600,15 L740,40 L860,8 L1000,38 L1120,18 L1200,44"/>
-</svg>
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-strip-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>Our prices are on this page</span>
+    </div>
+    <div class="trust-strip-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>Photo proof after every visit</span>
+    </div>
+    <div class="trust-strip-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>Stone-safe methods only</span>
+    </div>
+    <div class="trust-strip-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>Cancel recurring care anytime</span>
+    </div>
+  </div>
+</div>
 
 <section class="block" id="how">
   <div class="block-head">
@@ -412,8 +664,8 @@
     </div>
     <div class="step">
       <span class="num">II.</span>
-      <h3>Choose a plan</h3>
-      <p>A one-time cleaning, or a subscription — quarterly, semi-annual, or annual.</p>
+      <h3>Pick one visit or recurring care</h3>
+      <p>A single cleaning, or ongoing care once, twice, or four times a year.</p>
     </div>
     <div class="step">
       <span class="num">III.</span>
@@ -430,81 +682,343 @@
 
 <section class="block" id="plans" style="background:var(--ivory-warm);">
   <div class="block-head">
-    <p class="eyebrow">Services</p>
-    <h2>Plans &amp; pricing</h2>
+    <p class="eyebrow">Pricing</p>
+    <h2>What it costs, before you call</h2>
+    <p class="sub">Most headstone cleaners in Utah County won't give you a number until you've spoken to someone. Here are ours.</p>
   </div>
-  <div class="plans">
-    <div class="plan-card">
-      <h3>One-Time</h3>
-      <div class="plan-price">$65+</div>
-      <div class="plan-freq">single visit, no commitment</div>
-      <p class="plan-desc">A single, thorough cleaning. Final price depends on marker size and condition.</p>
-      <!-- Replace href with your Stripe Payment Link for the one-time service -->
-      <a href="#" class="btn btn-ghost">Get Started</a>
+
+  <div class="pricing">
+    <div class="mode-tabs" role="tablist" aria-label="Choose a service type">
+      <button class="mode-tab" id="tab-once" role="tab" aria-selected="true" aria-controls="panel-once" type="button">One-time visit</button>
+      <button class="mode-tab" id="tab-recurring" role="tab" aria-selected="false" aria-controls="panel-recurring" type="button">Recurring care</button>
     </div>
-    <div class="plan-card">
-      <h3>Annual</h3>
-      <div class="plan-price">1&times;</div>
-      <div class="plan-freq">visit per year</div>
-      <p class="plan-desc">Light, budget-friendly upkeep — one visit annually, billed automatically.</p>
-      <!-- Replace href with your Stripe Payment Link for the annual subscription -->
-      <a href="#" class="btn btn-ghost">Subscribe</a>
+
+    <div class="price-panel" id="panel-once" role="tabpanel" aria-labelledby="tab-once">
+      <p class="freq-label">A single cleaning, no commitment</p>
+      <div class="price-readout">
+        <span class="price-big">$65</span>
+        <span class="price-unit">one visit</span>
+        <span class="price-total">Billed once. Nothing recurring, nothing to cancel.</span>
+      </div>
+      <p class="price-note">One thorough, stone-safe cleaning of a standard granite, marble, or bronze marker, finished with a before-and-after photo report sent to you.</p>
+      <div class="price-actions">
+        <a href="contact.html?plan=One-Time" class="btn btn-primary">Book a one-time cleaning</a>
+        <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
+      </div>
     </div>
-    <div class="plan-card featured">
-      <span class="badge">Most Chosen</span>
-      <h3>Semi-Annual</h3>
-      <div class="plan-price">2&times;</div>
-      <div class="plan-freq">visits per year</div>
-      <p class="plan-desc">Balanced care through the seasons — spring and fall visits, billed twice yearly.</p>
-      <!-- Replace href with your Stripe Payment Link for the semi-annual subscription -->
-      <a href="#" class="btn btn-primary">Subscribe</a>
-    </div>
-    <div class="plan-card">
-      <h3>Quarterly</h3>
-      <div class="plan-price">4&times;</div>
-      <div class="plan-freq">visits per year</div>
-      <p class="plan-desc">Pristine, year-round condition with a visit every three months.</p>
-      <!-- Replace href with your Stripe Payment Link for the quarterly subscription -->
-      <a href="#" class="btn btn-ghost">Subscribe</a>
+
+    <div class="price-panel" id="panel-recurring" role="tabpanel" aria-labelledby="tab-recurring" hidden>
+      <p class="freq-label">How often should we visit?</p>
+      <div class="freq-options" role="radiogroup" aria-label="Visits per year">
+        <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="1">
+          <span class="ft">1&times;</span><span class="fl">Once a year</span>
+        </button>
+        <button class="freq-opt" type="button" role="radio" aria-checked="true" data-freq="2">
+          <span class="ft">2&times;</span><span class="fl">Spring &amp; fall</span>
+        </button>
+        <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="4">
+          <span class="ft">4&times;</span><span class="fl">Every season</span>
+        </button>
+      </div>
+
+      <div class="price-readout">
+        <span class="price-big" id="recPrice">$50</span>
+        <span class="price-unit">per visit</span>
+        <span class="save-badge" id="recSave">Save 23% a visit</span>
+        <span class="price-total" id="recTotal">$100 a year &middot; 2 visits</span>
+      </div>
+      <p class="price-note" id="recNote">Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice.</p>
+      <div class="price-actions">
+        <a href="contact.html?plan=Recurring" class="btn btn-primary" id="recCta">Start recurring care</a>
+        <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
+      </div>
     </div>
   </div>
-  <p class="rush-note">Need it done sooner? Add a rush visit outside our normal monthly schedule for an additional fee — ideal for reunions, anniversaries, or Memorial Day. <a href="tel:+12089088362" style="color:var(--moss-dark); font-weight:600;">Call to arrange one.</a></p>
+
+  <div class="price-honesty">
+    <strong>Where the price can change &mdash; and when we tell you</strong>
+    An unusually large monument, or a marker that has gone many years without care, can take substantially longer than a standard visit. If yours is one of those, we tell you the price <em>before</em> we do the work, never after. Need a visit outside our normal monthly route &mdash; for a reunion, an anniversary, or Memorial Day? <a href="tel:+12089088362" style="color:var(--moss-dark); font-weight:600;">Call and we'll arrange it.</a>
+  </div>
 </section>
+
+<section class="block" id="work">
+  <div class="block-head">
+    <p class="eyebrow">Our Work</p>
+    <h2>What a cleaning actually does</h2>
+    <p class="sub">Lichen, hard-water film, and years of grime lift away — and the lettering becomes readable again.</p>
+  </div>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════════
+    REAL BEFORE / AFTER PHOTOS GO HERE
+    ═══════════════════════════════════════════════════════════════════════
+    The slider below is an ILLUSTRATION, clearly drawn, not a photograph.
+    That is deliberate: it fills the visual gap honestly until you have
+    real photos of your own work.
+
+    TO SWAP IN A REAL PHOTO PAIR — replace the two <svg> elements inside
+    .ba-frame with:
+
+      <img class="ba-after"  src="images/marker-01-after.jpg"  alt="Headstone after cleaning">
+      <img class="ba-top" id="baTop" src="images/marker-01-before.jpg" alt="Headstone before cleaning">
+
+    ...and add to the CSS:  .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    Shoot both frames from the SAME spot, same distance, same time of day.
+    Then delete the .ba-caption line below.
+
+    Please do not use AI-generated images here — see the note in
+    launch-checklist.md. Presenting generated images as your own completed
+    work is false advertising, and it is the kind of thing a competitor
+    or a review site will eventually notice.
+    ═══════════════════════════════════════════════════════════════════════
+  -->
+  <div class="ba">
+    <div class="ba-frame" id="baFrame">
+      <!-- AFTER (underneath) -->
+      <svg viewBox="0 0 600 400" role="img" aria-label="Illustration of a headstone after cleaning, with clear lettering">
+        <rect width="600" height="400" fill="#EFEDE5"/>
+        <path d="M0,250 L90,225 L180,244 L280,215 L380,240 L480,218 L600,238 L600,400 L0,400 Z" fill="#C7C2B2" opacity="0.65"/>
+        <rect x="0" y="300" width="600" height="100" fill="#B4AF9C"/>
+        <path d="M215,300 L215,150 Q215,100 300,100 Q385,100 385,150 L385,300 Z" fill="#F2F0E8" stroke="#3B4A32" stroke-width="2.5"/>
+        <text x="300" y="180" text-anchor="middle" style="font-family:var(--serif); font-size:21px; fill:#24302B; opacity:.72;">IN LOVING</text>
+        <text x="300" y="209" text-anchor="middle" style="font-family:var(--serif); font-size:21px; fill:#24302B; opacity:.72;">MEMORY</text>
+        <line x1="258" y1="228" x2="342" y2="228" stroke="#3B4A32" stroke-width="1.4" opacity=".55"/>
+        <text x="300" y="256" text-anchor="middle" style="font-family:var(--serif); font-size:16px; fill:#24302B; opacity:.6;">1931 &mdash; 2014</text>
+      </svg>
+
+      <!-- BEFORE (clipped on top) -->
+      <svg class="ba-top" id="baTop" viewBox="0 0 600 400" role="img" aria-label="Illustration of the same headstone before cleaning, darkened by lichen and grime">
+        <rect width="600" height="400" fill="#E2DFD4"/>
+        <path d="M0,250 L90,225 L180,244 L280,215 L380,240 L480,218 L600,238 L600,400 L0,400 Z" fill="#BCB7A6" opacity="0.65"/>
+        <rect x="0" y="300" width="600" height="100" fill="#A8A390"/>
+        <path d="M215,300 L215,150 Q215,100 300,100 Q385,100 385,150 L385,300 Z" fill="#C3BFAE" stroke="#3B4A32" stroke-width="2.5"/>
+        <!-- staining -->
+        <path d="M215,240 Q250,230 300,246 Q350,262 385,248 L385,300 L215,300 Z" fill="#9E9982" opacity=".55"/>
+        <path d="M232,300 L232,150 Q232,118 262,108 L248,300 Z" fill="#8F8B74" opacity=".35"/>
+        <!-- lichen -->
+        <g fill="#7C8460" opacity=".62">
+          <circle cx="252" cy="139" r="13"/><circle cx="266" cy="151" r="8"/>
+          <circle cx="345" cy="176" r="10"/><circle cx="356" cy="167" r="6.5"/>
+          <circle cx="238" cy="205" r="9"/><circle cx="362" cy="253" r="12"/>
+          <circle cx="349" cy="264" r="7"/><circle cx="292" cy="286" r="8"/>
+        </g>
+        <g fill="#6E7756" opacity=".45">
+          <circle cx="228" cy="169" r="7"/><circle cx="374" cy="215" r="8"/><circle cx="264" cy="262" r="6"/>
+        </g>
+        <text x="300" y="180" text-anchor="middle" style="font-family:var(--serif); font-size:21px; fill:#3E4136; opacity:.3;">IN LOVING</text>
+        <text x="300" y="209" text-anchor="middle" style="font-family:var(--serif); font-size:21px; fill:#3E4136; opacity:.26;">MEMORY</text>
+        <line x1="258" y1="228" x2="342" y2="228" stroke="#3E4136" stroke-width="1.4" opacity=".2"/>
+        <text x="300" y="256" text-anchor="middle" style="font-family:var(--serif); font-size:16px; fill:#3E4136; opacity:.22;">1931 &mdash; 2014</text>
+        <!-- overgrown grass at base -->
+        <g stroke="#7C8460" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".8">
+          <path d="M206,300 C202,282 208,268 218,260"/>
+          <path d="M212,278 C206,274 202,268 202,262"/>
+          <path d="M394,300 C398,284 392,270 383,262"/>
+          <path d="M389,280 C395,276 398,270 398,264"/>
+        </g>
+      </svg>
+
+      <span class="ba-tag left">Before</span>
+      <span class="ba-tag right">After</span>
+      <div class="ba-divider" id="baDivider" style="left:50%;"></div>
+      <input class="ba-handle" id="baHandle" type="range" min="0" max="100" value="50"
+             aria-label="Drag to compare before and after">
+    </div>
+    <p class="ba-caption">Illustration. Drag the handle to compare. Photographs of our own completed work will replace this.</p>
+  </div>
+</section>
+
+<section class="block" id="promise" style="background:var(--ivory-warm);">
+  <div class="promise">
+    <p class="eyebrow" style="text-align:center;">Our Promise</p>
+    <h3>If it isn't right, we come back.</h3>
+    <p>Look at the photo report. If you aren't happy with how the marker looks, tell us within 30 days and we return and clean it again at no charge. If it still isn't right after that, we refund that visit. No argument, no forms.</p>
+    <p class="sig">&mdash; Jacob &amp; Isaac</p>
+  </div>
+</section>
+
+<section class="block" id="compare">
+  <div class="block-head">
+    <p class="eyebrow">The Difference</p>
+    <h2>How we compare</h2>
+    <p class="sub">There are good people doing this work in Utah County. Here's specifically what's different about how we do it.</p>
+  </div>
+  <div class="compare-scroll">
+    <table class="compare">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" class="us">Sacred Stone</th>
+          <th scope="col">Local monument &amp; restoration shops</th>
+          <th scope="col">National grave-care services</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">See a price without contacting anyone</th>
+          <td class="us">Yes — printed above</td>
+          <td>Typically quote-only</td>
+          <td>Usually a multi-step quote form</td>
+        </tr>
+        <tr>
+          <th scope="row">Before-and-after photos every visit</th>
+          <td class="us">Yes, every visit</td>
+          <td>Varies by shop</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <th scope="row">Recurring care, 1–4 visits a year</th>
+          <td class="us">Yes, cancel anytime</td>
+          <td>Sometimes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <th scope="row">The same local people each visit</th>
+          <td class="us">Yes — Jacob or Isaac, every time</td>
+          <td>Usually a crew</td>
+          <td>Subcontracted crews, assigned per job</td>
+        </tr>
+        <tr>
+          <th scope="row">Written come-back guarantee</th>
+          <td class="us">Yes — 30 days, in writing</td>
+          <td>Rarely stated</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <th scope="row">Cleaning is the whole business</th>
+          <td class="us">Yes — it's all we do</td>
+          <td>Often secondary to selling monuments</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="compare-note">Based on publicly available information from competitors' own websites as of August 2026. If anything here is out of date, tell us and we'll correct it.</p>
+</section>
+
+<svg class="ridge" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,50 L120,20 L220,45 L340,10 L460,42 L600,15 L740,40 L860,8 L1000,38 L1120,18 L1200,44"/>
+</svg>
 
 <section class="block" id="trust">
   <div class="block-head">
     <p class="eyebrow">Our Standard</p>
-    <h2>Why families trust us</h2>
+    <h2>What you can count on</h2>
   </div>
   <div class="trust-grid">
     <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 5c5 3 9 4 13 4v11c0 9-6 14-13 15C13 34 7 29 7 20V9c4 0 8-1 13-4Z"/></svg>
-      <h3>Fully insured</h3>
-      <p>General liability coverage, because a family's memorial deserves careful, professional handling.</p>
-    </div>
-    <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6c6 8 10 13 10 18a10 10 0 0 1-20 0c0-5 4-10 10-18Z"/></svg>
       <h3>Gentle, stone-safe methods</h3>
-      <p>No bleach, no acid, no abrasive tools — only preservation-safe cleaning suited to granite, marble, and bronze.</p>
+      <p>No bleach, no acid, no pressure washing, no abrasive tools — only preservation-safe cleaning suited to granite, marble, and bronze.</p>
     </div>
     <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="12" width="30" height="20" rx="2"/><circle cx="20" cy="22" r="6"/><path d="M14 12l2-4h8l2 4"/></svg>
       <h3>Photo proof, every visit</h3>
-      <p>No guessing whether the work was done — every visit ends with photos sent directly to you.</p>
+      <p>No guessing whether the work was done — every visit ends with dated before-and-after photos sent directly to you.</p>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 5 8 10v10c0 8 5 13 12 15 7-2 12-7 12-15V10L20 5Z"/><path d="M15 20l4 4 7-7"/></svg>
+      <h3>A price you see first</h3>
+      <p>Our rates are printed on this page. If your marker will cost more than the standard rate, you hear it before we start, not after.</p>
     </div>
     <div class="trust-item">
       <svg class="trust-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 4 6 15v20h9V24h10v11h9V15L20 4Z"/></svg>
       <h3>Local and personal</h3>
-      <p>Based in Utah County. Not a call center — a real person who shows up, every time.</p>
+      <p>Based in Utah County. Not a call center and not a rotating crew — two people, Jacob and Isaac, and you'll know which of us is coming.</p>
     </div>
   </div>
 </section>
+
+<section class="block" id="about" style="background:var(--ivory-warm);">
+  <div class="block-head">
+    <p class="eyebrow">About Us</p>
+    <h2>Who's actually doing the work</h2>
+  </div>
+
+  <!--
+    PORTRAIT: when you have the photo of the two of you, replace the <svg>
+    below with:
+      <img src="images/jacob-isaac.jpg" alt="Jacob Bingham and Isaac Otto, founders of Sacred Stone">
+    A plain, warm photo of the two of you outdoors — ideally at a cemetery,
+    in work clothes — beats a posed studio shot here by a mile. It is the
+    single fastest way to look like the real, local, human option.
+  -->
+
+  <div class="about-grid">
+    <div class="about-portrait">
+      <svg viewBox="0 0 320 400" role="img" aria-label="Placeholder portrait of the two founders">
+        <rect width="320" height="400" fill="#E2DFD4"/>
+        <circle cx="118" cy="168" r="42" fill="none" stroke="#A69574" stroke-width="2"/>
+        <path d="M52 318c0-40 30-66 66-66s66 26 66 66" fill="none" stroke="#A69574" stroke-width="2"/>
+        <circle cx="212" cy="186" r="38" fill="none" stroke="#A69574" stroke-width="2"/>
+        <path d="M152 318c0-37 27-60 60-60s60 23 60 60" fill="none" stroke="#A69574" stroke-width="2"/>
+        <text x="160" y="366" text-anchor="middle" style="font-family:var(--sans); font-size:12px; letter-spacing:.1em; fill:#A69574;">PHOTO TO COME</text>
+      </svg>
+    </div>
+
+    <div class="about-copy">
+      <p>Sacred Stone is run by two people: <strong>Jacob Bingham</strong> and <strong>Isaac Otto</strong>. We grew up together, we've both lived in Utah County for the last few years, and we're both working our way through college. That's the honest reason this business exists — and it's also why we take it seriously. When you call, you get one of us. Not a dispatcher, and not whichever contractor happened to be free that week.</p>
+      <p>The idea came from our own grandparents' headstones. Utah's hard water leaves a chalky film on granite that most families assume is just age — and once we noticed it, we couldn't stop noticing it, on their markers and on half the stones around them. So we looked into who cleans them. We found a few good monument companies, most of whom treat cleaning as a sideline to selling stones, and almost nobody who would give you a price without a phone call first. Utah County seemed underserved. We decided to do something about it.</p>
+      <p>We aren't new to this kind of work. We both spent our high school years building and running landscape maintenance companies — routes, schedules, seasonal work, and customers who expected the same standard on the tenth visit as the first. Headstones are more delicate than lawns and the stakes are a great deal more personal, but the discipline is identical: show up when you said you would, do it properly, and prove it.</p>
+      <p>We're a young company, and we'd rather say so plainly than pad this page with claims we can't stand behind. What we promise instead is specific. Every visit ends with photographs. Every rate is printed on this page. And if we ever get it wrong, we come back and make it right — that's our names on it.</p>
+      <p class="about-name">Jacob Bingham &amp; Isaac Otto</p>
+      <p class="about-role">Founders &middot; Utah County</p>
+    </div>
+  </div>
+</section>
+
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  TESTIMONIALS — READY TO SWITCH ON
+  ═══════════════════════════════════════════════════════════════════════
+  Deliberately left OFF until you have real reviews from real paying
+  customers. Not one of your four Utah County competitors shows a single
+  testimonial, so even three genuine ones will put you ahead of all of them.
+
+  TO ACTIVATE: delete this comment's opening line and the closing marker
+  below, then replace the three quotes with real ones.
+
+  ⚠ IMPORTANT — read before you collect reviews:
+  Google's review policies prohibit reviews from people who were not
+  actually customers, including friends and family. Profiles that do this
+  get reviews stripped or the listing suspended, and a suspended Google
+  Business Profile is very hard to get back. It is also the single most
+  valuable local-SEO asset you will own.
+  The safe version: clean a few markers for friends and family FOR REAL —
+  free or discounted is fine, they just have to be genuine jobs you
+  actually performed — and then ask those people to review the experience
+  they actually had. That is legitimate, and it gets you real photos for
+  the gallery above at the same time.
+
+<section class="block" id="testimonials">
+  <div class="block-head">
+    <p class="eyebrow">Families We've Helped</p>
+    <h2>What people say</h2>
+  </div>
+  <div class="trust-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="trust-item">
+      <p style="font-family:var(--serif); font-size:18px; font-style:italic; margin-bottom:14px;">"[Real quote here.]"</p>
+      <p style="font-weight:600; font-size:14px;">First name L. &middot; City</p>
+    </div>
+    <div class="trust-item">
+      <p style="font-family:var(--serif); font-size:18px; font-style:italic; margin-bottom:14px;">"[Real quote here.]"</p>
+      <p style="font-weight:600; font-size:14px;">First name L. &middot; City</p>
+    </div>
+    <div class="trust-item">
+      <p style="font-family:var(--serif); font-size:18px; font-style:italic; margin-bottom:14px;">"[Real quote here.]"</p>
+      <p style="font-weight:600; font-size:14px;">First name L. &middot; City</p>
+    </div>
+  </div>
+</section>
+
+  ═══════════════════════ END TESTIMONIALS BLOCK ════════════════════════
+-->
 
 <svg class="ridge" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="transform:rotate(180deg);">
   <path d="M0,50 L120,20 L220,45 L340,10 L460,42 L600,15 L740,40 L860,8 L1000,38 L1120,18 L1200,44"/>
 </svg>
 
-<section class="block" id="coverage" style="background:var(--ivory-warm);">
+<section class="block" id="coverage">
   <div class="block-head">
     <p class="eyebrow">Service Area</p>
     <h2>Cemeteries we serve</h2>
@@ -520,27 +1034,43 @@
   <p class="coverage-note">Don't see your loved one's cemetery listed? <a href="tel:+12089088362" style="color:var(--moss-dark); font-weight:600;">Call us</a> — we're expanding across Utah County.</p>
 </section>
 
-<section class="block" id="faq">
+<section class="block" id="faq" style="background:var(--ivory-warm);">
   <div class="block-head">
     <p class="eyebrow">Questions</p>
     <h2>Frequently asked</h2>
   </div>
   <div class="faq">
     <details>
-      <summary>Will cleaning damage the headstone?</summary>
-      <p>No. We use gentle, non-ionic cleaning solutions built specifically for cemetery monuments — the same standards used by preservation professionals. Nothing abrasive, nothing acidic.</p>
+      <summary>How much does it cost?</summary>
+      <p>A one-time cleaning is $65. Recurring care is $60 a visit once a year, $50 a visit twice a year, or $45 a visit four times a year — the more often we come, the less each visit costs, because a well-maintained marker takes less work. Unusually large or badly weathered markers can cost more, and we tell you before we do the work.</p>
     </details>
     <details>
-      <summary>Can I cancel my subscription anytime?</summary>
-      <p>Yes. Subscriptions can be paused or canceled before your next billing cycle with no penalty, right from your own account portal.</p>
+      <summary>Will cleaning damage the headstone?</summary>
+      <p>No. We use gentle, non-ionic cleaning solutions built specifically for cemetery monuments — the same standards used by preservation professionals. Nothing abrasive, nothing acidic, no bleach, and never a pressure washer.</p>
+    </details>
+    <details>
+      <summary>How do I know the work was actually done?</summary>
+      <p>Every visit ends with a dated before-and-after photo report sent to you. You can see the marker's condition yourself without driving to the cemetery — that's the entire point of the service.</p>
+    </details>
+    <details>
+      <summary>What if I'm not happy with the result?</summary>
+      <p>Tell us within 30 days of the photo report and we come back and clean it again at no charge. If it still isn't right, we refund that visit.</p>
+    </details>
+    <details>
+      <summary>Can I cancel recurring care anytime?</summary>
+      <p>Yes. Recurring care can be paused or canceled before your next scheduled visit, with no penalty and no cancellation fee.</p>
     </details>
     <details>
       <summary>Do you need the exact plot location?</summary>
       <p>It helps, but isn't required — we can often locate a grave using the cemetery, name, and approximate date if you don't have the section and lot number.</p>
     </details>
     <details>
-      <summary>What if I just want one cleaning, not a subscription?</summary>
-      <p>That's completely fine — one-time cleanings are available with no ongoing commitment.</p>
+      <summary>Do I need permission from the cemetery?</summary>
+      <p>In most Utah County cemeteries, routine cleaning by a family or someone acting for them is permitted, though rules vary and some require notice. We check the cemetery's policy before the first visit so you don't have to. <a href="resources/cemetery-permission-headstone-cleaning-rules.html">More on cemetery rules here.</a></p>
+    </details>
+    <details>
+      <summary>Do you work on veteran and military markers?</summary>
+      <p>Yes. Bronze veteran markers need different handling than granite — no harsh chemicals, and never anything that strips the patina. <a href="resources/cleaning-a-bronze-veteran-military-marker.html">Here's how we approach them.</a></p>
     </details>
   </div>
 </section>
@@ -549,18 +1079,47 @@
   <h2>Their memory deserves to be looked after.</h2>
   <p>Let us take care of it — so you don't have to carry that one more thing.</p>
   <div class="cta-row" style="justify-content:center;">
-    <a href="#plans" class="btn btn-primary">Get Started</a>
+    <a href="#plans" class="btn btn-primary">See Pricing</a>
     <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
     <a href="contact.html" class="btn btn-ghost">Send a Message</a>
   </div>
 </section>
 
-<footer>
-  Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; Serving Utah County &middot; <a href="resources/index.html" style="color:inherit;">Resources</a>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="wordmark">Sacred Stone</a>
+      <p>Headstone cleaning across Utah County, with our prices published and photo proof after every visit.</p>
+      <p><a href="tel:+12089088362" style="font-weight:600; color:var(--moss-dark);">(208) 908-8362</a></p>
+    </div>
+    <div>
+      <h4>Service</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#plans">Pricing</a></li>
+        <li><a href="#promise">Our promise</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Areas We Serve</h4>
+      <ul>
+        <li><a href="provo-headstone-cleaning.html">Provo</a></li>
+        <li><a href="orem-headstone-cleaning.html">Orem</a></li>
+        <li><a href="springville-headstone-cleaning.html">Springville</a></li>
+        <li><a href="american-fork-headstone-cleaning.html">American Fork</a></li>
+        <li><a href="resources/index.html">Resources &amp; guides</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; Serving Utah County
+  </div>
 </footer>
 
 <script>
-  // Mobile nav toggle
+  /* ── Mobile nav ── */
   const navToggle = document.getElementById('navToggle');
   const siteNav = document.getElementById('siteNav');
   navToggle.addEventListener('click', () => {
@@ -574,6 +1133,89 @@
     });
   });
 
+  /* ─────────────────────────────────────────────────────────────
+     PRICING — change your numbers HERE and nowhere else.
+     `base` is the one-time price and stays the highest per-visit rate.
+     ───────────────────────────────────────────────────────────── */
+  const PRICING = {
+    base: 65,
+    recurring: {
+      1: { perVisit: 60, note: "One visit a year, timed for whenever matters most to you — a birthday, an anniversary, or ahead of Memorial Day." },
+      2: { perVisit: 50, note: "Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice." },
+      4: { perVisit: 45, note: "A visit every season. The marker never gets a chance to go green, and each visit is quicker — which is why it's our lowest rate." }
+    }
+  };
+
+  /* ── Pricing tabs ── */
+  const tabs = {
+    once: { tab: document.getElementById('tab-once'), panel: document.getElementById('panel-once') },
+    recurring: { tab: document.getElementById('tab-recurring'), panel: document.getElementById('panel-recurring') }
+  };
+  function selectMode(key) {
+    Object.entries(tabs).forEach(([k, o]) => {
+      const on = k === key;
+      o.tab.setAttribute('aria-selected', String(on));
+      o.panel.hidden = !on;
+    });
+  }
+  tabs.once.tab.addEventListener('click', () => selectMode('once'));
+  tabs.recurring.tab.addEventListener('click', () => selectMode('recurring'));
+
+  /* ── Recurring frequency ── */
+  const freqOpts = Array.from(document.querySelectorAll('.freq-opt'));
+  const recPrice = document.getElementById('recPrice');
+  const recTotal = document.getElementById('recTotal');
+  const recSave  = document.getElementById('recSave');
+  const recNote  = document.getElementById('recNote');
+  const recCta   = document.getElementById('recCta');
+
+  function renderFreq(freq) {
+    const plan = PRICING.recurring[freq];
+    if (!plan) return;
+    const total = plan.perVisit * freq;
+    const savePct = Math.round((1 - plan.perVisit / PRICING.base) * 100);
+
+    recPrice.textContent = '$' + plan.perVisit;
+    recTotal.textContent = '$' + total + ' a year · ' + freq + (freq === 1 ? ' visit' : ' visits');
+    recNote.textContent = plan.note;
+    recCta.href = 'contact.html?plan=' + encodeURIComponent('Recurring ' + freq + 'x per year');
+
+    if (savePct > 0) {
+      recSave.textContent = 'Save ' + savePct + '% a visit';
+      recSave.hidden = false;
+    } else {
+      recSave.hidden = true;
+    }
+
+    freqOpts.forEach(b => b.setAttribute('aria-checked', String(Number(b.dataset.freq) === freq)));
+  }
+
+  freqOpts.forEach(btn => {
+    btn.addEventListener('click', () => renderFreq(Number(btn.dataset.freq)));
+    btn.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const i = freqOpts.indexOf(btn);
+      const next = freqOpts[(i + (e.key === 'ArrowRight' ? 1 : freqOpts.length - 1)) % freqOpts.length];
+      next.focus();
+      renderFreq(Number(next.dataset.freq));
+    });
+  });
+
+  renderFreq(2);
+
+  /* ── Before / after slider ── */
+  const baHandle  = document.getElementById('baHandle');
+  const baTop     = document.getElementById('baTop');
+  const baDivider = document.getElementById('baDivider');
+  if (baHandle && baTop && baDivider) {
+    const setSplit = v => {
+      baTop.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+      baDivider.style.left = v + '%';
+    };
+    baHandle.addEventListener('input', e => setSplit(Number(e.target.value)));
+    setSplit(Number(baHandle.value));
+  }
 </script>
 
 </body>

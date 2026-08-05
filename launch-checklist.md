@@ -9,7 +9,7 @@
 - [ ] **Open a separate business bank account.** Mixing personal and business funds undermines the liability protection an LLC is supposed to give you.
 - [ ] **Check Provo City's business licensing requirements.** Many Utah cities require a license even for home-based or service-area businesses — worth a quick call to Provo City's business licensing division to confirm what applies to you.
 - [x] **Check Utah sales tax obligations.** Confirmed: headstone cleaning services are not taxable in Utah.
-- [ ] **Get general liability insurance.** Plan: get this in place before the first paying job, alongside the LLC — not before then.
+- [ ] **Get general liability insurance.** Plan: get this in place before the first paying job, alongside the LLC — not before then. **Note:** the "Fully insured" claim has been *removed* from the live homepage, since it isn't true yet. Once the policy is bound, add it back to the "What you can count on" grid in `index.html` — and state the actual limit as a number ("$1M general liability"), not just the word "insured." None of your four Utah County competitors publishes a coverage figure, so a number is a differentiator on its own.
 - [x] **Call/email each cemetery office** (Provo, Orem, Springville, American Fork, plus Eastlawn Memorial Hills and Timpanogos Memorial Gardens) — outreach sent to all six.
 
 ## Phase 2 — Get the website fully live
@@ -19,6 +19,20 @@
 - [x] **Formspree form ID wired up** (`xrenjolw`) in `contact.html`. Still to do once the domain is live: set this form's "Redirect URL" in the Formspree dashboard to `https://yourdomain.com/thank-you.html` so submitters land on your confirmation page instead of Formspree's default one.
 - [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
+
+## Phase 2.5 — The two assets that beat every competitor (do these early)
+
+Competitive research (Aug 2026) on Precious Stones, My Clean Headstone, Heritage Memorials, and Beesley Monument found that **none of the four publishes a price, shows a single testimonial, or states an insurance figure.** Your homepage now does the first of those. These two get you the other two — and they're the highest-leverage work left.
+
+- [ ] **Get real before/after photos.** The `#work` section on the homepage currently shows a hand-drawn illustration, clearly labeled as one. It's honest, but a real photo pair beats it decisively — all four competitors have photo galleries and you don't.
+  - **Do not use AI-generated images here.** Presenting generated images as photographs of work you performed is false advertising, and it's exactly the kind of thing a competitor or a reviewer eventually catches. It would also undercut the "photo proof after every visit" promise that the whole business is built on — if the gallery photos aren't real, why would a customer believe the report photos are?
+  - The fast, legitimate path: clean 3–5 markers for real — family graves, friends' family graves, free or discounted is completely fine — and photograph each one. That's genuine completed work, and it solves the photo problem and the review problem in the same afternoon.
+  - Shoot before and after from the **same spot, same distance, same time of day.** Matched framing is what makes a before/after convincing. Swap instructions are in the HTML comment above the slider in `index.html`.
+- [ ] **Get a photo of the two of you** for the About section (`#about` in `index.html` — swap instructions are in the comment above the placeholder). Outdoors, work clothes, ideally at a cemetery. This is the cheapest credibility on the whole site: none of the four competitors puts a face on the business, and "two real people from here" is the entire positioning. A phone photo in good light is genuinely fine.
+- [ ] **Get real reviews — carefully.** The testimonial section is built and commented out in `index.html`, ready to switch on.
+  - Google's policies prohibit reviews from people who weren't actually customers, **including friends and family who didn't receive the service.** Violations get reviews stripped or the listing suspended, and a suspended Google Business Profile is very hard to recover. It'll also be your single most valuable local-SEO asset.
+  - The safe version is the same as the photo plan above: do the free/discounted jobs **for real**, then ask those people to review the experience they actually had. Legitimate, and it produces photos and reviews together.
+  - Three genuine reviews puts you ahead of all four competitors, who show zero.
 
 ## Phase 3 — Local visibility
 
