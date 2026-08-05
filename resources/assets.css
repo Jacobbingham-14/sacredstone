@@ -55,7 +55,9 @@ p{margin:0 0 16px;}
 .phone-pill:hover{background:var(--moss-dark); color:var(--ivory-warm);}
 .nav-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
 
-@media (max-width:700px){
+/* Matches the breakpoint in index.html — the nav grew past what fits
+   inline below this width, and items were wrapping onto three lines. */
+@media (max-width:940px){
   .nav{
     position:absolute; top:100%; left:0; right:0;
     background:var(--ivory-warm);

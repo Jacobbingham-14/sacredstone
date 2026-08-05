@@ -15,8 +15,11 @@
 ## Phase 2 — Get the website fully live
 
 - [ ] **Buy a domain and set up hosting.**
-- [ ] **Set up Stripe** and paste your real Payment Links into the pricing card buttons (currently placeholders — see the HTML comments marking each one).
-- [x] **Formspree form ID wired up** (`xrenjolw`) in `contact.html`. Still to do once the domain is live: set this form's "Redirect URL" in the Formspree dashboard to `https://yourdomain.com/thank-you.html` so submitters land on your confirmation page instead of Formspree's default one.
+- [x] **Payment: deliberately no Stripe for now.** `order.html` takes an order with no payment at all — you confirm by text, clean, send photos, and get paid by Venmo afterwards. This is set up as a *feature*, not a gap: "you don't pay until you've seen the photos" is something none of the four competitors offers, and it removes the biggest objection a brand-new business faces. Add Stripe later if you want, but keep the pay-after option when you do.
+- [x] **Formspree form ID wired up** (`xrenjolw`) in `contact.html` and `order.html`. Still to do once the domain is live — **note there are now two confirmation pages**, and Formspree only allows one Redirect URL per form:
+  - Simplest: point the form's Redirect URL at `https://yourdomain.com/order-received.html`, since orders matter more than general messages, and delete `thank-you.html`.
+  - Better: create a **second Formspree form** for orders, put its ID in `order.html`, and point form 1 → `thank-you.html`, form 2 → `order-received.html`. This also separates orders from questions in your inbox, which will matter quickly.
+- [ ] **Watch the Formspree free-tier limit (50 submissions/month).** Orders and contact messages both count against it. If you split into two forms, each gets its own allowance.
 - [ ] **Replace every `yourdomain.com` placeholder** in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
 - [ ] **Submit your sitemap** to Google Search Console and Bing Webmaster Tools once live.
 
@@ -45,7 +48,8 @@ Competitive research (Aug 2026) on Precious Stones, My Clean Headstone, Heritage
 
 ## Phase 4 — Before you spend a dollar on ads
 
-- [ ] **Confirm the site actually converts.** Don't send paid traffic to placeholder buttons — Stripe needs to be live first (see Phase 2).
+- [ ] **Confirm the site actually converts.** Submit `order.html` yourself once, end to end, and check the email that arrives actually contains the phone number and every marker's details in a form you can act on. Do this before spending a dollar on ads.
+- [ ] **Have a Venmo handle ready** (and decide whether it's a personal or business account) before the first order lands — the site promises payment "after", so you need somewhere to send them.
 - [ ] **Install conversion tracking** — a Google Ads tag and/or Meta Pixel, so you can actually measure what your ad spend is doing. (See note below — I've added ready-to-use placeholders to the homepage.)
 - [ ] **Know the ad platform rules for this niche** before writing any ad copy:
   - **Google Ads:** Ordinary keyword-targeted search ads are fine ("headstone cleaning Provo," etc.). What's *not* allowed is using remarketing lists or Customer Match audiences built on bereavement or personal-hardship signals — don't build a "people who visited my grieving-family page" retargeting audience.

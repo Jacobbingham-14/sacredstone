@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--
+  ORDER FORM — no payment is taken here, by design.
+
+  Flow: customer submits this form → Formspree emails you the full order,
+  including their phone number and the per-marker details → you text them
+  to confirm the price and the timing → you clean → you send photos →
+  THEN they pay you by Venmo (or however you like).
+
+  This is deliberately built so that "no payment now" reads as a feature
+  rather than a missing Stripe integration, because for you it genuinely
+  is one: nobody else in Utah County lets a family see the photographs
+  before they pay. If you add Stripe later, keep the pay-after option.
+
+  ── PRICING ──
+  The PRICING object in the script at the bottom of this file is a COPY of
+  the one in index.html. If you change a price, change it in BOTH files.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start an Order | Sacred Stone Headstone Cleaning</title>
+<meta name="description" content="Book headstone cleaning in Utah County. No payment up front — we confirm by text, clean the marker, send you before-and-after photos, and you pay after.">
+<meta name="robots" content="noindex,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="resources/assets.css">
+<style>
+  .order-wrap{max-width:1060px; margin:0 auto; padding:48px 28px 90px;}
+  .order-head{max-width:640px; margin-bottom:38px;}
+  .order-head h1{margin-bottom:14px;}
+  .order-head p{font-size:16.5px; opacity:.86; margin-bottom:0;}
+
+  .order-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:44px; align-items:start;}
+  @media (max-width:900px){ .order-grid{grid-template-columns:1fr; gap:34px;} }
+
+  .step-card{
+    background:var(--ivory-warm); border:1px solid var(--mist);
+    border-radius:10px; padding:28px 26px; margin-bottom:22px;
+  }
+  .step-card > h2{
+    font-family:var(--sans); font-size:12.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--moss-dark); font-weight:600;
+    margin:0 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .step-num{
+    background:var(--moss-dark); color:var(--quartz);
+    width:21px; height:21px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:11px; letter-spacing:0; flex-shrink:0;
+  }
+
+  /* Service picker */
+  .mode-tabs{
+    display:grid; grid-template-columns:1fr 1fr;
+    border:1px solid var(--mist); background:var(--ivory);
+    border-radius:8px; padding:5px; margin-bottom:24px;
+  }
+  .mode-tab{
+    appearance:none; border:none; background:none; cursor:pointer;
+    font-family:var(--sans); font-size:14.5px; font-weight:600; color:var(--ink);
+    padding:12px 10px; border-radius:6px; opacity:.7;
+  }
+  .mode-tab[aria-selected="true"]{background:var(--moss-dark); color:var(--quartz); opacity:1;}
+
+  .freq-label{
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--moss-dark); font-weight:600; margin:0 0 12px;
+  }
+  .freq-options{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px;}
+  .freq-opt{
+    appearance:none; cursor:pointer; font-family:var(--sans);
+    background:var(--quartz); border:1px solid var(--mist);
+    border-radius:8px; padding:14px 8px; text-align:center; color:var(--ink);
+  }
+  .freq-opt[aria-checked="true"]{border-color:var(--moss-dark); border-width:2px; padding:13px 7px;}
+  .freq-opt .ft{display:block; font-family:var(--serif); font-size:22px; line-height:1; margin-bottom:5px;}
+  .freq-opt .fl{display:block; font-size:12.5px; opacity:.78;}
+  @media (max-width:560px){
+    .freq-options{grid-template-columns:1fr; gap:8px;}
+    .freq-opt{display:flex; align-items:baseline; gap:11px; text-align:left;}
+    .freq-opt .ft{margin-bottom:0; font-size:19px;}
+  }
+
+  /* Marker blocks */
+  .marker-card{
+    background:var(--quartz); border:1px solid var(--mist);
+    border-radius:8px; padding:22px 20px 6px; margin-bottom:16px;
+    position:relative;
+  }
+  .marker-card-head{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:16px; gap:12px;
+  }
+  .marker-card-head h3{font-family:var(--serif); font-size:19px; margin:0;}
+  .marker-remove{
+    appearance:none; background:none; border:none; cursor:pointer;
+    font-family:var(--sans); font-size:13px; color:var(--moss-dark);
+    text-decoration:underline; padding:4px;
+  }
+  .marker-remove:hover{opacity:.7;}
+  .add-marker{
+    appearance:none; width:100%; cursor:pointer; font-family:var(--sans);
+    background:none; border:1px dashed var(--taupe); border-radius:8px;
+    padding:14px; font-size:14.5px; font-weight:600; color:var(--moss-dark);
+  }
+  .add-marker:hover:not(:disabled){background:var(--quartz);}
+  .add-marker:disabled{opacity:.4; cursor:not-allowed;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:0 16px;}
+  @media (max-width:560px){ .field-row{grid-template-columns:1fr;} }
+
+  /* Summary rail */
+  .summary{
+    position:sticky; top:96px;
+    background:var(--quartz); border:1px solid var(--taupe);
+    border-radius:10px; padding:28px 26px;
+  }
+  .summary h2{font-family:var(--serif); font-size:22px; margin:0 0 18px;}
+  .sum-line{
+    display:flex; justify-content:space-between; gap:14px;
+    font-size:14.5px; padding:9px 0; border-bottom:1px solid var(--mist);
+  }
+  .sum-line span:last-child{font-weight:600; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .sum-total{
+    display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+    padding-top:16px; margin-top:6px;
+  }
+  .sum-total .lbl{font-size:14.5px; font-weight:600;}
+  .sum-total .amt{font-family:var(--serif); font-size:34px; line-height:1; font-variant-numeric:tabular-nums;}
+  .sum-sub{font-size:13.5px; opacity:.78; margin:8px 0 0; text-align:right;}
+  .sum-estimate{
+    font-size:13px; opacity:.75; margin:18px 0 0;
+    border-top:1px solid var(--mist); padding-top:16px;
+  }
+  @media (max-width:900px){ .summary{position:static;} }
+
+  .paynote{
+    background:var(--moss-dark); color:var(--quartz);
+    border-radius:10px; padding:24px 26px; margin-bottom:22px;
+  }
+  .paynote h2{font-family:var(--serif); font-size:20px; color:var(--quartz); margin:0 0 10px;}
+  .paynote p{font-size:14.5px; opacity:.92; margin:0 0 10px;}
+  .paynote p:last-child{margin-bottom:0;}
+  .paynote ol{margin:0; padding-left:19px; font-size:14.5px; opacity:.92;}
+  .paynote li{margin-bottom:7px;}
+  .paynote li:last-child{margin-bottom:0;}
+
+  .form-submit{font-size:16px; padding:16px;}
+  .required-star{color:var(--moss-dark);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="wordmark">Sacred Stone</a>
+    <nav class="nav" id="siteNav">
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#plans">Pricing</a>
+      <a href="index.html#work">Our Work</a>
+      <a href="index.html#about">About</a>
+      <a href="resources/index.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="phone-pill" href="tel:+12089088362">(208) 908-8362</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="order-wrap">
+  <p class="breadcrumb"><a href="index.html">Home</a> / Start an order</p>
+  <div class="order-head">
+    <p class="eyebrow">Start an Order</p>
+    <h1>Tell us who we're caring for</h1>
+    <p>No payment is taken on this page, and nothing is charged up front. We'll text you to confirm the details and the exact price before we go out.</p>
+  </div>
+
+  <!--
+    FORM BACKEND: posts to the same Formspree form as contact.html (xrenjolw).
+    Once the domain is live, set that form's Redirect URL in the Formspree
+    dashboard to https://yourdomain.com/order-received.html
+  -->
+  <form action="https://formspree.io/f/xrenjolw" method="POST" id="orderForm">
+    <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="_subject" value="NEW ORDER — Sacred Stone">
+    <input type="hidden" name="order_summary" id="orderSummary">
+
+    <div class="order-grid">
+      <div>
+
+        <div class="step-card">
+          <h2><span class="step-num">1</span> Which service?</h2>
+
+          <div class="mode-tabs" role="tablist" aria-label="Service type">
+            <button class="mode-tab" id="tab-once" role="tab" aria-selected="false" type="button">One-time visit</button>
+            <button class="mode-tab" id="tab-recurring" role="tab" aria-selected="true" type="button">Recurring care</button>
+          </div>
+
+          <div id="freqBlock">
+            <p class="freq-label">How often should we visit?</p>
+            <div class="freq-options" role="radiogroup" aria-label="Visits per year">
+              <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="1">
+                <span class="ft">1&times;</span><span class="fl">Once a year</span>
+              </button>
+              <button class="freq-opt" type="button" role="radio" aria-checked="true" data-freq="2">
+                <span class="ft">2&times;</span><span class="fl">Spring &amp; fall</span>
+              </button>
+              <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="4">
+                <span class="ft">4&times;</span><span class="fl">Every season</span>
+              </button>
+            </div>
+          </div>
+
+          <input type="hidden" name="service" id="serviceField">
+        </div>
+
+        <div class="step-card">
+          <h2><span class="step-num">2</span> Which markers?</h2>
+          <div id="markerList"></div>
+          <button type="button" class="add-marker" id="addMarker">+ Add another marker</button>
+          <p class="marker-hint" style="font-size:13.5px; opacity:.75; margin:14px 0 0;">
+            Every marker after the first at the <em>same</em> cemetery is discounted — we're already there. Markers at a different cemetery are a separate trip, so they're priced as a first marker.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h2><span class="step-num">3</span> How do we reach you?</h2>
+
+          <div class="field-row">
+            <div class="form-field">
+              <label for="name">Your name <span class="required-star">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone <span class="required-star">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required
+                     placeholder="(801) 555-0123">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email <span class="required-star">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p style="font-size:13px; opacity:.7; margin:7px 0 0;">This is where your before-and-after photos will be sent.</p>
+          </div>
+
+          <div class="form-field">
+            <label for="contact_pref">Best way to reach you</label>
+            <select id="contact_pref" name="contact_preference">
+              <option value="Text">Text message</option>
+              <option value="Phone call">Phone call</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="notes">Anything else we should know <span class="optional">(optional)</span></label>
+            <textarea id="notes" name="notes" placeholder="A date that matters, access notes, or anything you'd like us to be aware of."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="summary">
+          <h2>Your order</h2>
+          <div id="sumLines"></div>
+          <div class="sum-total">
+            <span class="lbl" id="sumLabel">Per visit</span>
+            <span class="amt" id="sumAmount">$50</span>
+          </div>
+          <p class="sum-sub" id="sumSub">$100 a year &middot; 2 visits</p>
+          <p class="sum-estimate">
+            This is an estimate at our standard rates. An unusually large or badly weathered marker can take longer — if yours is one of those, we'll tell you the price when we confirm, <strong>before</strong> any work happens.
+          </p>
+        </div>
+
+        <div class="paynote" style="margin-top:22px;">
+          <h2>You pay after, not before</h2>
+          <ol>
+            <li>You send this order — no card, no payment.</li>
+            <li>We text you within one business day to confirm the price and timing.</li>
+            <li>We clean the marker.</li>
+            <li>We email you the before-and-after photos.</li>
+            <li><strong>Then</strong> you pay — Venmo, or whatever's easiest.</li>
+          </ol>
+        </div>
+
+        <button type="submit" class="btn form-submit">Send my order</button>
+        <p class="form-note">No payment is taken on this page. We reply within one business day.</p>
+        <p class="form-note" style="margin-top:12px;">
+          Would rather just talk it through? Call or text <a href="tel:+12089088362" style="color:var(--moss-dark); font-weight:600;">(208) 908-8362</a>.
+        </p>
+      </aside>
+    </div>
+  </form>
+</main>
+
+<footer>Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; Serving Utah County</footer>
+
+<script>
+  /* ── Mobile nav ── */
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ─────────────────────────────────────────────────────────────
+     PRICING — this is a COPY of the table in index.html.
+     Change a number here and you must change it there too.
+     ───────────────────────────────────────────────────────────── */
+  const PRICING = {
+    once:      { first: 65, extra: 45 },
+    recurring: {
+      1: { first: 60, extra: 42 },
+      2: { first: 50, extra: 35 },
+      4: { first: 45, extra: 32 }
+    }
+  };
+
+  const CEMETERIES = ['Provo City Cemetery','Orem City Cemetery','Springville City Cemetery',
+    'American Fork City Cemetery','Eastlawn Memorial Hills','Timpanogos Memorial Gardens',
+    'Another cemetery in Utah County'];
+
+  const el = id => document.getElementById(id);
+  const params = new URLSearchParams(location.search);
+
+  /* ── Marker rows ── */
+  const MAX_MARKERS = 6;
+
+  // Carry the homepage calculator's choices straight into the form, so nobody
+  // has to pick their plan or marker count a second time.
+  const wantMarkers = parseInt(params.get('markers'), 10);
+  const state = {
+    mode: params.get('plan') === 'once' ? 'once' : 'recurring',
+    freq: [1,2,4].includes(Number(params.get('plan'))) ? Number(params.get('plan')) : 2,
+    markers: Number.isFinite(wantMarkers) ? Math.min(Math.max(wantMarkers, 1), MAX_MARKERS) : 1
+  };
+  const markerList = el('markerList');
+
+  function markerCard(i) {
+    const n = i + 1;
+    const opts = CEMETERIES.map(c => `<option value="${c}">${c}</option>`).join('');
+    const d = document.createElement('div');
+    d.className = 'marker-card';
+    d.innerHTML = `
+      <div class="marker-card-head">
+        <h3>Marker ${n}</h3>
+        ${i > 0 ? `<button type="button" class="marker-remove" data-remove="${i}">Remove</button>` : ''}
+      </div>
+      <div class="form-field">
+        <label for="m${n}_name">Name on the marker <span class="required-star">*</span></label>
+        <input type="text" id="m${n}_name" name="marker_${n}_name" required>
+      </div>
+      <div class="form-field">
+        <label for="m${n}_cem">Cemetery <span class="required-star">*</span></label>
+        <select id="m${n}_cem" name="marker_${n}_cemetery" required>
+          <option value="" disabled selected>Select one</option>
+          ${opts}
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="form-field">
+          <label for="m${n}_plot">Section / lot <span class="optional">(if known)</span></label>
+          <input type="text" id="m${n}_plot" name="marker_${n}_plot">
+        </div>
+        <div class="form-field">
+          <label for="m${n}_type">Marker type</label>
+          <select id="m${n}_type" name="marker_${n}_type">
+            <option value="Not sure">Not sure</option>
+            <option value="Upright granite">Upright granite</option>
+            <option value="Flat granite">Flat granite</option>
+            <option value="Marble">Marble</option>
+            <option value="Bronze on granite">Bronze on granite</option>
+          </select>
+        </div>
+      </div>`;
+    return d;
+  }
+
+  function renderMarkers() {
+    const saved = Array.from(markerList.querySelectorAll('input, select')).map(f => f.value);
+    markerList.innerHTML = '';
+    for (let i = 0; i < state.markers; i++) markerList.appendChild(markerCard(i));
+    // restore what the customer had already typed
+    Array.from(markerList.querySelectorAll('input, select')).forEach((f, i) => {
+      if (saved[i] !== undefined && saved[i] !== '') f.value = saved[i];
+    });
+    el('addMarker').disabled = state.markers >= MAX_MARKERS;
+    el('addMarker').textContent = state.markers >= MAX_MARKERS
+      ? 'Caring for more than six? Give us a call.'
+      : '+ Add another marker';
+  }
+
+  markerList.addEventListener('click', e => {
+    const btn = e.target.closest('[data-remove]');
+    if (!btn) return;
+    const idx = Number(btn.dataset.remove);
+    const cards = Array.from(markerList.children);
+    cards[idx].remove();
+    // renumber by rebuilding from what's left
+    const remaining = Array.from(markerList.querySelectorAll('.marker-card')).map(c =>
+      Array.from(c.querySelectorAll('input, select')).map(f => f.value));
+    state.markers = Math.max(1, state.markers - 1);
+    markerList.innerHTML = '';
+    for (let i = 0; i < state.markers; i++) markerList.appendChild(markerCard(i));
+    Array.from(markerList.querySelectorAll('.marker-card')).forEach((c, i) => {
+      const fields = Array.from(c.querySelectorAll('input, select'));
+      if (remaining[i]) fields.forEach((f, j) => { if (remaining[i][j]) f.value = remaining[i][j]; });
+    });
+    el('addMarker').disabled = false;
+    el('addMarker').textContent = '+ Add another marker';
+    render();
+  });
+
+  el('addMarker').addEventListener('click', () => {
+    if (state.markers >= MAX_MARKERS) return;
+    state.markers++;
+    markerList.appendChild(markerCard(state.markers - 1));
+    el('addMarker').disabled = state.markers >= MAX_MARKERS;
+    if (state.markers >= MAX_MARKERS) el('addMarker').textContent = 'Caring for more than six? Give us a call.';
+    render();
+  });
+
+  /* ── Service picker ── */
+  const modeTabs = { once: el('tab-once'), recurring: el('tab-recurring') };
+  Object.entries(modeTabs).forEach(([k, t]) =>
+    t.addEventListener('click', () => { state.mode = k; render(); }));
+
+  const freqOpts = Array.from(document.querySelectorAll('.freq-opt'));
+  freqOpts.forEach(btn => btn.addEventListener('click', () => {
+    state.freq = Number(btn.dataset.freq);
+    state.mode = 'recurring';
+    render();
+  }));
+
+  /* ── Summary ── */
+  function planLabel() {
+    if (state.mode === 'once') return 'One-time visit';
+    return 'Recurring care · ' + state.freq + (state.freq === 1 ? ' visit a year' : ' visits a year');
+  }
+
+  function render() {
+    const plan = state.mode === 'once' ? PRICING.once : PRICING.recurring[state.freq];
+    const n = state.markers;
+    const perVisit = plan.first + (n - 1) * plan.extra;
+    const isOnce = state.mode === 'once';
+
+    el('freqBlock').hidden = isOnce;
+    Object.entries(modeTabs).forEach(([k, t]) => t.setAttribute('aria-selected', String(k === state.mode)));
+    freqOpts.forEach(b => b.setAttribute('aria-checked', String(Number(b.dataset.freq) === state.freq)));
+
+    const lines = [`<div class="sum-line"><span>${planLabel()}</span><span></span></div>`,
+      `<div class="sum-line"><span>First marker</span><span>$${plan.first}</span></div>`];
+    if (n > 1) lines.push(
+      `<div class="sum-line"><span>${n - 1} additional marker${n > 2 ? 's' : ''}</span><span>$${(n - 1) * plan.extra}</span></div>`);
+    el('sumLines').innerHTML = lines.join('');
+
+    el('sumLabel').textContent = isOnce ? 'Total' : 'Per visit';
+    el('sumAmount').textContent = '$' + perVisit;
+    el('sumSub').textContent = isOnce
+      ? 'Billed once, after the cleaning.'
+      : '$' + perVisit * state.freq + ' a year · ' + state.freq + (state.freq === 1 ? ' visit' : ' visits');
+
+    // What actually lands in your inbox
+    const summary = [
+      planLabel(),
+      n + (n === 1 ? ' marker' : ' markers'),
+      isOnce ? `$${perVisit} total` : `$${perVisit} per visit — $${perVisit * state.freq} a year`,
+      n > 1 ? `(first $${plan.first} + ${n - 1} × $${plan.extra}, assumes same cemetery)` : ''
+    ].filter(Boolean).join(' · ');
+    el('orderSummary').value = summary;
+    el('serviceField').value = planLabel();
+  }
+
+  renderMarkers();
+  render();
+</script>
+</body>
+</html>

@@ -71,6 +71,8 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"How much does headstone cleaning cost?","acceptedAnswer":{"@type":"Answer","text":"A one-time cleaning is $65. Recurring care is $60 a visit once a year, $50 a visit twice a year, or $45 a visit four times a year. Unusually large or badly weathered markers may cost more, and we tell you before we do the work, never after."}},
+    {"@type":"Question","name":"Can you clean more than one headstone?","acceptedAnswer":{"@type":"Answer","text":"Yes, and every marker after the first at the same cemetery is discounted, because the drive is already covered: $45 each on a one-time visit, and $42, $35, or $32 a visit on recurring care. Markers at a different cemetery are a separate trip and are priced as a first marker."}},
+    {"@type":"Question","name":"When do I pay for headstone cleaning?","acceptedAnswer":{"@type":"Answer","text":"After the work is done, not before. You send an order with no card and no payment, we confirm the price by text, we clean the marker, we email you before-and-after photos, and then you pay."}},
     {"@type":"Question","name":"Will cleaning damage the headstone?","acceptedAnswer":{"@type":"Answer","text":"No. We use gentle, non-ionic cleaning solutions made specifically for cemetery monuments, the same standards used by preservation professionals. Nothing abrasive, nothing acidic, no bleach, and no pressure washing."}},
     {"@type":"Question","name":"How do I know the work was actually done?","acceptedAnswer":{"@type":"Answer","text":"Every visit ends with a before-and-after photo report sent to you, dated, so you can see the marker's condition yourself without driving to the cemetery."}},
     {"@type":"Question","name":"What if I am not happy with the result?","acceptedAnswer":{"@type":"Answer","text":"Tell us within 30 days of the photo report and we come back and clean it again at no charge. If it still is not right, we refund that visit."}},
@@ -305,6 +307,24 @@
     color:var(--moss-dark); font-weight:600; margin-bottom:14px;
   }
   .freq-options{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:32px;}
+
+  /* Marker count stepper */
+  .marker-block{margin-bottom:30px;}
+  .stepper{display:flex; align-items:center; gap:0; width:max-content;
+    border:1px solid var(--mist); border-radius:8px; background:var(--ivory-warm); overflow:hidden;}
+  .stepper button{
+    appearance:none; border:none; background:none; cursor:pointer;
+    font-family:var(--sans); font-size:22px; line-height:1; color:var(--moss-dark);
+    width:46px; height:46px; display:flex; align-items:center; justify-content:center;
+  }
+  .stepper button:hover:not(:disabled){background:var(--mist);}
+  .stepper button:disabled{opacity:.3; cursor:not-allowed;}
+  .stepper output{
+    font-family:var(--serif); font-size:22px; min-width:52px; text-align:center;
+    border-left:1px solid var(--mist); border-right:1px solid var(--mist);
+    height:46px; display:flex; align-items:center; justify-content:center;
+  }
+  .marker-hint{font-size:13.5px; opacity:.75; margin-top:11px; max-width:52ch;}
   .freq-opt{
     appearance:none; cursor:pointer; font-family:var(--sans);
     background:var(--ivory-warm); border:1px solid var(--mist);
@@ -323,6 +343,11 @@
   .price-big{font-family:var(--serif); font-size:52px; line-height:1; color:var(--ink);}
   .price-unit{font-size:15px; opacity:.75;}
   .price-total{font-size:14.5px; opacity:.8; width:100%;}
+  .price-breakdown{
+    width:100%; font-size:13.5px; opacity:.72; margin-top:2px;
+    font-variant-numeric:tabular-nums;
+  }
+  .price-breakdown[hidden]{display:none;}
   .save-badge{
     display:inline-block; background:var(--moss-dark); color:var(--quartz);
     font-size:11.5px; letter-spacing:.07em; text-transform:uppercase; font-weight:600;
@@ -573,7 +598,7 @@
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="resources/index.html">Resources</a>
-      <a href="contact.html">Contact</a>
+      <a href="order.html">Order</a>
     </nav>
     <div style="display:flex; align-items:center; gap:14px;">
       <a class="phone-pill" href="tel:+12089088362">(208) 908-8362</a>
@@ -589,7 +614,7 @@
     <p class="lede">Sacred Stone visits, cleans gently, and sends you photos — so a family memorial across town or across the country is never left unattended.</p>
     <div class="price-flag">
       <strong>$65</strong>
-      <span>for a one-time cleaning &mdash; or from $45 a visit with recurring care.</span>
+      <span>for a one-time cleaning &mdash; and nothing to pay until you've seen the photos.</span>
     </div>
     <div class="cta-row">
       <a href="#plans" class="btn btn-primary">See Pricing</a>
@@ -638,15 +663,15 @@
     </div>
     <div class="trust-strip-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>No payment until it's done</span>
+    </div>
+    <div class="trust-strip-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
       <span>Photo proof after every visit</span>
     </div>
     <div class="trust-strip-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
       <span>Stone-safe methods only</span>
-    </div>
-    <div class="trust-strip-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-      <span>Cancel recurring care anytime</span>
     </div>
   </div>
 </div>
@@ -674,8 +699,8 @@
     </div>
     <div class="step">
       <span class="num">IV.</span>
-      <h3>You get photos</h3>
-      <p>A before-and-after photo report lands in your inbox after every visit.</p>
+      <h3>You see photos, then you pay</h3>
+      <p>A before-and-after report lands in your inbox after every visit — and only then do you pay.</p>
     </div>
   </div>
 </section>
@@ -693,45 +718,47 @@
       <button class="mode-tab" id="tab-recurring" role="tab" aria-selected="false" aria-controls="panel-recurring" type="button">Recurring care</button>
     </div>
 
-    <div class="price-panel" id="panel-once" role="tabpanel" aria-labelledby="tab-once">
-      <p class="freq-label">A single cleaning, no commitment</p>
-      <div class="price-readout">
-        <span class="price-big">$65</span>
-        <span class="price-unit">one visit</span>
-        <span class="price-total">Billed once. Nothing recurring, nothing to cancel.</span>
+    <div class="price-panel">
+      <div id="freqBlock">
+        <p class="freq-label">How often should we visit?</p>
+        <div class="freq-options" role="radiogroup" aria-label="Visits per year">
+          <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="1">
+            <span class="ft">1&times;</span><span class="fl">Once a year</span>
+          </button>
+          <button class="freq-opt" type="button" role="radio" aria-checked="true" data-freq="2">
+            <span class="ft">2&times;</span><span class="fl">Spring &amp; fall</span>
+          </button>
+          <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="4">
+            <span class="ft">4&times;</span><span class="fl">Every season</span>
+          </button>
+        </div>
       </div>
-      <p class="price-note">One thorough, stone-safe cleaning of a standard granite, marble, or bronze marker, finished with a before-and-after photo report sent to you.</p>
-      <div class="price-actions">
-        <a href="contact.html?plan=One-Time" class="btn btn-primary">Book a one-time cleaning</a>
-        <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
-      </div>
-    </div>
 
-    <div class="price-panel" id="panel-recurring" role="tabpanel" aria-labelledby="tab-recurring" hidden>
-      <p class="freq-label">How often should we visit?</p>
-      <div class="freq-options" role="radiogroup" aria-label="Visits per year">
-        <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="1">
-          <span class="ft">1&times;</span><span class="fl">Once a year</span>
-        </button>
-        <button class="freq-opt" type="button" role="radio" aria-checked="true" data-freq="2">
-          <span class="ft">2&times;</span><span class="fl">Spring &amp; fall</span>
-        </button>
-        <button class="freq-opt" type="button" role="radio" aria-checked="false" data-freq="4">
-          <span class="ft">4&times;</span><span class="fl">Every season</span>
-        </button>
+      <div class="marker-block">
+        <p class="freq-label">How many markers?</p>
+        <div class="stepper">
+          <button type="button" id="mkMinus" aria-label="One fewer marker">&minus;</button>
+          <output id="mkCount" for="mkMinus mkPlus" aria-live="polite">1</output>
+          <button type="button" id="mkPlus" aria-label="One more marker">+</button>
+        </div>
+        <p class="marker-hint" id="mkHint">Caring for more than one? Every marker after the first at the same cemetery is discounted — we're already there.</p>
       </div>
 
       <div class="price-readout">
-        <span class="price-big" id="recPrice">$50</span>
-        <span class="price-unit">per visit</span>
-        <span class="save-badge" id="recSave">Save 23% a visit</span>
-        <span class="price-total" id="recTotal">$100 a year &middot; 2 visits</span>
+        <span class="price-big" id="pcPrice">$50</span>
+        <span class="price-unit" id="pcUnit">per visit</span>
+        <span class="save-badge" id="pcSave">Save 23% a visit</span>
+        <span class="price-total" id="pcTotal">$100 a year &middot; 2 visits</span>
+        <span class="price-breakdown" id="pcBreakdown" hidden></span>
       </div>
-      <p class="price-note" id="recNote">Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice.</p>
+      <p class="price-note" id="pcNote">Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice.</p>
       <div class="price-actions">
-        <a href="contact.html?plan=Recurring" class="btn btn-primary" id="recCta">Start recurring care</a>
+        <a href="order.html" class="btn btn-primary" id="pcCta">Start an order</a>
         <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
       </div>
+      <p class="price-note" style="margin-top:18px; font-weight:500; opacity:.95;">
+        No payment now &mdash; and nothing to pay until the work is done. We confirm by text, clean, send you the photos, and <em>then</em> you pay.
+      </p>
     </div>
   </div>
 
@@ -890,6 +917,12 @@
           <td>Often secondary to selling monuments</td>
           <td>Yes</td>
         </tr>
+        <tr>
+          <th scope="row">Pay only after you've seen the photos</th>
+          <td class="us">Yes — nothing up front</td>
+          <td>Usually invoiced or paid on booking</td>
+          <td>Card taken at checkout</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -1045,6 +1078,14 @@
       <p>A one-time cleaning is $65. Recurring care is $60 a visit once a year, $50 a visit twice a year, or $45 a visit four times a year — the more often we come, the less each visit costs, because a well-maintained marker takes less work. Unusually large or badly weathered markers can cost more, and we tell you before we do the work.</p>
     </details>
     <details>
+      <summary>Can you clean more than one marker?</summary>
+      <p>Yes, and it costs less per marker. Once we've made the drive to a cemetery, the additional markers there are mostly just time — so every marker after the first at the same cemetery is discounted: $45 each on a one-time visit, and $42, $35, or $32 a visit on recurring care. Markers at a <em>different</em> cemetery mean a separate trip, so those are priced as a first marker. Use the calculator above, or just tell us on the order form and we'll confirm the exact total.</p>
+    </details>
+    <details>
+      <summary>When and how do I pay?</summary>
+      <p>After the work is done — not before. You send an order with no payment and no card. We text you to confirm the price and timing, we clean the marker, we email you the before-and-after photos, and then you pay. Venmo is easiest for us right now, but we'll work with whatever suits you. If you aren't happy with what you see in the photos, say so before you pay anything.</p>
+    </details>
+    <details>
       <summary>Will cleaning damage the headstone?</summary>
       <p>No. We use gentle, non-ionic cleaning solutions built specifically for cemetery monuments — the same standards used by preservation professionals. Nothing abrasive, nothing acidic, no bleach, and never a pressure washer.</p>
     </details>
@@ -1079,10 +1120,11 @@
   <h2>Their memory deserves to be looked after.</h2>
   <p>Let us take care of it — so you don't have to carry that one more thing.</p>
   <div class="cta-row" style="justify-content:center;">
-    <a href="#plans" class="btn btn-primary">See Pricing</a>
+    <a href="order.html" class="btn btn-primary">Start an Order</a>
     <a href="tel:+12089088362" class="btn btn-ghost">Call (208) 908-8362</a>
     <a href="contact.html" class="btn btn-ghost">Send a Message</a>
   </div>
+  <p style="opacity:.8; font-size:14.5px; margin-top:26px;">No payment up front. You pay after the cleaning, once you've seen the photos.</p>
 </section>
 
 <footer class="site-footer">
@@ -1095,6 +1137,7 @@
     <div>
       <h4>Service</h4>
       <ul>
+        <li><a href="order.html">Start an order</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#plans">Pricing</a></li>
         <li><a href="#promise">Our promise</a></li>
@@ -1134,75 +1177,109 @@
   });
 
   /* ─────────────────────────────────────────────────────────────
-     PRICING — change your numbers HERE and nowhere else.
-     `base` is the one-time price and stays the highest per-visit rate.
+     PRICING — change your numbers HERE and nowhere else on this page.
+     `first` is the rate for the first marker at a cemetery; `extra` is
+     each additional marker at that SAME cemetery (we're already there,
+     so the drive is already paid for). One-time stays the dearest rate.
+
+     NOTE: order.html carries its own identical copy of this table — if
+     you change a number here, change it there too. Both files say so.
      ───────────────────────────────────────────────────────────── */
   const PRICING = {
-    base: 65,
+    once:      { first: 65, extra: 45, note: "A single, thorough cleaning with no commitment. Nothing recurring, nothing to cancel." },
     recurring: {
-      1: { perVisit: 60, note: "One visit a year, timed for whenever matters most to you — a birthday, an anniversary, or ahead of Memorial Day." },
-      2: { perVisit: 50, note: "Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice." },
-      4: { perVisit: 45, note: "A visit every season. The marker never gets a chance to go green, and each visit is quicker — which is why it's our lowest rate." }
+      1: { first: 60, extra: 42, note: "One visit a year, timed for whenever matters most to you — a birthday, an anniversary, or ahead of Memorial Day." },
+      2: { first: 50, extra: 35, note: "Spring and fall visits keep a marker ahead of the growing season and the winter grime. The most popular choice." },
+      4: { first: 45, extra: 32, note: "A visit every season. The marker never gets a chance to go green, and each visit is quicker — which is why it's our lowest rate." }
     }
   };
 
-  /* ── Pricing tabs ── */
-  const tabs = {
-    once: { tab: document.getElementById('tab-once'), panel: document.getElementById('panel-once') },
-    recurring: { tab: document.getElementById('tab-recurring'), panel: document.getElementById('panel-recurring') }
-  };
-  function selectMode(key) {
-    Object.entries(tabs).forEach(([k, o]) => {
-      const on = k === key;
-      o.tab.setAttribute('aria-selected', String(on));
-      o.panel.hidden = !on;
-    });
-  }
-  tabs.once.tab.addEventListener('click', () => selectMode('once'));
-  tabs.recurring.tab.addEventListener('click', () => selectMode('recurring'));
+  const state = { mode: 'recurring', freq: 2, markers: 1 };
 
-  /* ── Recurring frequency ── */
+  const el = id => document.getElementById(id);
   const freqOpts = Array.from(document.querySelectorAll('.freq-opt'));
-  const recPrice = document.getElementById('recPrice');
-  const recTotal = document.getElementById('recTotal');
-  const recSave  = document.getElementById('recSave');
-  const recNote  = document.getElementById('recNote');
-  const recCta   = document.getElementById('recCta');
 
-  function renderFreq(freq) {
-    const plan = PRICING.recurring[freq];
-    if (!plan) return;
-    const total = plan.perVisit * freq;
-    const savePct = Math.round((1 - plan.perVisit / PRICING.base) * 100);
+  function currentPlan() {
+    return state.mode === 'once' ? PRICING.once : PRICING.recurring[state.freq];
+  }
 
-    recPrice.textContent = '$' + plan.perVisit;
-    recTotal.textContent = '$' + total + ' a year · ' + freq + (freq === 1 ? ' visit' : ' visits');
-    recNote.textContent = plan.note;
-    recCta.href = 'contact.html?plan=' + encodeURIComponent('Recurring ' + freq + 'x per year');
+  function render() {
+    const plan = currentPlan();
+    const n = state.markers;
+    const perVisit = plan.first + (n - 1) * plan.extra;
+    const isOnce = state.mode === 'once';
 
-    if (savePct > 0) {
-      recSave.textContent = 'Save ' + savePct + '% a visit';
-      recSave.hidden = false;
+    el('freqBlock').hidden = isOnce;
+    el('pcPrice').textContent = '$' + perVisit;
+    el('pcUnit').textContent = isOnce ? 'one visit' : 'per visit';
+    el('pcNote').textContent = plan.note;
+
+    // Savings badge compares against paying the one-time rate for the same markers.
+    const oneOff = PRICING.once.first + (n - 1) * PRICING.once.extra;
+    const savePct = Math.round((1 - perVisit / oneOff) * 100);
+    if (!isOnce && savePct > 0) {
+      el('pcSave').textContent = 'Save ' + savePct + '% a visit';
+      el('pcSave').hidden = false;
     } else {
-      recSave.hidden = true;
+      el('pcSave').hidden = true;
     }
 
-    freqOpts.forEach(b => b.setAttribute('aria-checked', String(Number(b.dataset.freq) === freq)));
+    el('pcTotal').textContent = isOnce
+      ? 'Billed once, after the cleaning is done.'
+      : '$' + perVisit * state.freq + ' a year · ' + state.freq + (state.freq === 1 ? ' visit' : ' visits');
+
+    const bd = el('pcBreakdown');
+    if (n > 1) {
+      bd.textContent = '$' + plan.first + ' first marker + ' + (n - 1) + ' × $' + plan.extra
+        + ' additional, same cemetery';
+      bd.hidden = false;
+    } else {
+      bd.hidden = true;
+    }
+
+    el('mkCount').textContent = n;
+    el('mkMinus').disabled = n <= 1;
+    el('mkPlus').disabled = n >= 6;
+    el('mkHint').textContent = n > 1
+      ? 'Markers at a different cemetery mean a separate trip, so they’re priced as a first marker. Tell us on the next page and we’ll confirm the exact total.'
+      : 'Caring for more than one? Every marker after the first at the same cemetery is discounted — we’re already there.';
+
+    const params = new URLSearchParams({
+      plan: state.mode === 'once' ? 'once' : String(state.freq),
+      markers: String(n)
+    });
+    el('pcCta').href = 'order.html?' + params.toString();
+
+    freqOpts.forEach(b => b.setAttribute('aria-checked', String(Number(b.dataset.freq) === state.freq)));
+    Object.entries(modeTabs).forEach(([k, t]) => t.setAttribute('aria-selected', String(k === state.mode)));
   }
+
+  const modeTabs = { once: el('tab-once'), recurring: el('tab-recurring') };
+  Object.entries(modeTabs).forEach(([k, t]) => {
+    t.addEventListener('click', () => { state.mode = k; render(); });
+  });
 
   freqOpts.forEach(btn => {
-    btn.addEventListener('click', () => renderFreq(Number(btn.dataset.freq)));
+    btn.addEventListener('click', () => {
+      state.freq = Number(btn.dataset.freq);
+      state.mode = 'recurring';
+      render();
+    });
     btn.addEventListener('keydown', e => {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       e.preventDefault();
       const i = freqOpts.indexOf(btn);
       const next = freqOpts[(i + (e.key === 'ArrowRight' ? 1 : freqOpts.length - 1)) % freqOpts.length];
       next.focus();
-      renderFreq(Number(next.dataset.freq));
+      state.freq = Number(next.dataset.freq);
+      render();
     });
   });
 
-  renderFreq(2);
+  el('mkMinus').addEventListener('click', () => { state.markers = Math.max(1, state.markers - 1); render(); });
+  el('mkPlus').addEventListener('click',  () => { state.markers = Math.min(6, state.markers + 1); render(); });
+
+  render();
 
   /* ── Before / after slider ── */
   const baHandle  = document.getElementById('baHandle');
