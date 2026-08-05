@@ -2,7 +2,7 @@
 
 *Last updated August 2026. Internal reference — not part of the public website.*
 
-**How to use this:** the stages are in the order things actually have to happen, and nothing appears twice. Stage 0 runs in the background from today; Stage 1 is the one that decides whether any of the rest works. Anything marked **[BLOCKER]** stops something else from being possible.
+**How to use this:** the stages are in the order things actually have to happen, and nothing appears twice. Stage 0 runs in the background from today; Stage 1 is the one that decides whether any of the rest works. Anything marked **[BLOCKER]** stops something else from being possible. `[~]` means applied for / in flight.
 
 **The dependency that's easy to miss:** this list has always said *get insurance before the first paying job*. Advertising is how you get the first paying job — so the LLC-and-insurance chain is not a "later" item. It is the slowest thing here, and it needs to start first.
 
@@ -12,10 +12,10 @@
 
 Each step needs the one before it, so this can't be compressed at the end.
 
-- [ ] **File the LLC** with the Utah Division of Corporations. This is what separates your personal assets from business liability if a cleaning ever goes wrong — which matters more here than in most side businesses, because the thing you're handling is irreplaceable and often expensive.
-- [ ] **Get an EIN** from the IRS. Free, takes minutes online. Needed for the bank account.
-- [ ] **Open a business bank account.** Mixing personal and business funds undermines the liability protection the LLC exists to give you. Point the Venmo business profile at this.
-- [ ] **Get general liability insurance quotes** and bind a policy. **[BLOCKER for advertising]**
+- [~] **File the LLC** with the Utah Division of Corporations — **applied Aug 2026, awaiting approval.** This is what separates your personal assets from business liability if a cleaning ever goes wrong.
+- [ ] **Get an EIN** from the IRS the moment the LLC is approved. Free, takes minutes online, and you get the number immediately. Don't let this sit — the bank account is blocked on it, and the insurance application will usually want it.
+- [ ] **Open a business bank account.** Mixing personal and business funds undermines the liability protection the LLC exists to give you. Point the Venmo business profile at this account.
+- [ ] **Get general liability insurance quotes** and bind a policy. **[BLOCKER for advertising]** You don't have to wait for the LLC to be approved to start collecting quotes — most insurers will quote on the business description alone, and you only need the entity details to actually bind. **Start the quotes now**, in parallel, because this is the slowest remaining item and everything about advertising waits on it.
 - [ ] **Call Provo City business licensing** to confirm what a home-based / service-area business needs. One call, but there can be a waiting period.
 - [x] **Utah sales tax** — confirmed: headstone cleaning services are not taxable in Utah.
 - [x] **Venmo business profile** set up (Aug 2026). Venmo's user agreement bars personal accounts from taking payment for goods and services from people you don't personally know, and every customer here is a stranger by definition. Seller fee 1.9% + $0.10 — about $1.34 on a $65 cleaning.
@@ -48,8 +48,19 @@ This is the highest-leverage item on the entire list, because it resolves four s
 
 ## Stage 2 — Make the site real
 
-- [ ] **Buy a domain and deploy.** **[BLOCKER for ads, Google Business Profile, sitemap, and `og:url`]**
-- [ ] **Replace every `yourdomain.com` placeholder.** It appears in four files: `robots.txt` (the `Sitemap:` line), `llms.txt`, `sitemap.xml` (22 URLs), and the `og:url` meta tag in `index.html`. A find-and-replace across those four does it.
+- [~] **Buy a domain** — **registered Aug 2026, propagating.** **[BLOCKER for ads, Google Business Profile, sitemap, and `og:url`]**
+- [ ] **Point the domain at Vercel.** In the Vercel dashboard: project `sacredstone` → Settings → Domains → add it, then set the registrar's nameservers or DNS records as Vercel instructs. DNS can take anywhere from minutes to a few hours to propagate.
+- [ ] **Decide www vs non-www** and make one redirect to the other. Vercel will serve both otherwise, which splits ranking signals. Pick one, set the other as a redirect in the Domains panel, and use the chosen form consistently in the placeholder replacement below.
+- [ ] **Replace every `yourdomain.com` placeholder — 52 occurrences across four files.** Use the exact www/non-www form chosen above.
+
+  | File | Occurrences |
+  |---|---|
+  | `llms.txt` | 25 |
+  | `sitemap.xml` | 24 |
+  | `robots.txt` | 2 |
+  | `index.html` (`og:url`) | 1 |
+
+  Easiest is a single find-and-replace across the repo — tell Claude the domain and it can do all 52 in one pass and verify none are left.
 - [ ] **Add the real before/after photos** to `#work` in `index.html`, replacing the illustration, and delete the "Illustration." caption line beneath it.
 - [ ] **Add the founder photo** to `#about`.
 - [ ] **Switch on the testimonial section** in `index.html` — it's built and commented out, ready for real quotes.
