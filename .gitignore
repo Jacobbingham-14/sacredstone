@@ -3,3 +3,10 @@
 node_modules
 *.log
 .Rhistory
+
+# ─────────────────────────────────────────────────────────────
+# NEVER COMMIT: this GitHub repo is PUBLIC.
+# business-info.md holds the EIN, bank details, and account info.
+# Keep it local. Do not remove these lines.
+# ─────────────────────────────────────────────────────────────
+business-info.md
