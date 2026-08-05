@@ -16,7 +16,9 @@ Each step needs the one before it, so this can't be compressed at the end.
 - [ ] **Get an EIN** from the IRS the moment the LLC is approved. Free, takes minutes online, and you get the number immediately. Don't let this sit — the bank account is blocked on it, and the insurance application will usually want it.
 - [ ] **Open a business bank account.** Mixing personal and business funds undermines the liability protection the LLC exists to give you. Point the Venmo business profile at this account.
 - [ ] **Get general liability insurance quotes** and bind a policy. **[BLOCKER for advertising]** You don't have to wait for the LLC to be approved to start collecting quotes — most insurers will quote on the business description alone, and you only need the entity details to actually bind. **Start the quotes now**, in parallel, because this is the slowest remaining item and everything about advertising waits on it.
-- [ ] **Call Provo City business licensing** to confirm what a home-based / service-area business needs. One call, but there can be a waiting period.
+- [ ] **Provo City business license — you almost certainly need one.** Provo requires a license for anyone who "owns or operates a business in Provo City," including service businesses. For a home-based business there's a **Home Occupation Permit**, split into Minor and Major: **Minor is free**, Major charges a fee. Sacred Stone is very likely *Minor* — no customers coming to the house, no signage, no stock, all work performed off-site — but confirm, don't assume. Read Provo City Code **14.41.050** (Minor) and **14.41.060** (Major), then apply through Provo's CityView business licensing portal. **Allow ~2 weeks processing.**
+  - **Call Provo 311 / (801) 852-6000** and ask the one question the website doesn't answer: *since all the actual work happens at cemeteries rather than at the house, is a Home Occupation Permit the right category?*
+  - **Ask the same question of Orem, Springville, and American Fork.** Many Utah cities require a license to *do business in* the city, not just to be based there — and you advertise service in all four. This is the part most new service businesses miss. Worth one call each before you advertise into those cities.
 - [x] **Utah sales tax** — confirmed: headstone cleaning services are not taxable in Utah.
 - [x] **Venmo business profile** set up (Aug 2026). Venmo's user agreement bars personal accounts from taking payment for goods and services from people you don't personally know, and every customer here is a stranger by definition. Seller fee 1.9% + $0.10 — about $1.34 on a $65 cleaning.
 - [x] **Cemetery outreach** — called/emailed all six (Provo, Orem, Springville, American Fork, Eastlawn Memorial Hills, Timpanogos Memorial Gardens).
@@ -83,7 +85,11 @@ This is the highest-leverage item on the entire list, because it resolves four s
 
 - [ ] **Claim the Google Business Profile** as a service-area business (hide your address; list Provo, Orem, Springville, American Fork as service areas). Pick the closest matching category; never keyword-stuff the business name. For a local service business this matters more than the ads themselves.
 - [ ] **Point your Stage 1 reviews at the profile.** Ad traffic landing on a review-less profile converts noticeably worse than one with even 5–10 reviews.
-- [ ] **Install conversion tracking** — Google Ads tag and/or Meta Pixel. Ready-to-use placeholders are in the `<head>` of `index.html`. Without this you cannot tell which ads work, and you'll burn budget finding out slowly.
+- [ ] **Turn on PostHog.** `analytics.js` is built and linked from all 25 pages, but **inert** until you paste a project key into `POSTHOG_KEY` at the top of that file. Sign up at posthog.com (generous free tier), take the Project API key from Settings — it starts with `phc_` and is safe to commit. It also skips localhost automatically, so your own testing won't pollute the numbers.
+  - Tracks the funnel that actually matters: `$pageview` → `pricing_changed` → `order_started` → `order_submitted`, plus `phone_clicked` and `marker_added`.
+  - **Session replay masks every form input.** People type dead relatives' names into the order form; you'll see *where* someone hesitated, never *what* they typed. Don't turn `maskAllInputs` off. To switch replay off entirely, set `DISABLE_SESSION_REPLAY = true` — the funnel events are the valuable part anyway.
+  - PostHog replaces the need for GA4. It does **not** replace the Google Ads tag or Meta Pixel — those platforms need their own tags to optimise bidding.
+- [ ] **Install ad conversion tracking** — Google Ads tag and/or Meta Pixel, only once you're actually running ads. Ready-to-use placeholders are in the `<head>` of `index.html`.
 - [ ] **Confirm the insurance and LLC actually landed** (Stage 0) before inviting paid traffic and real commercial volume.
 - [ ] **Restore the insurance claim to the site** once the policy is bound — add it back to the "What you can count on" grid in `index.html`, and state the actual limit as a number ("$1M general liability"), not the word "insured." No Utah County competitor publishes a coverage figure, so the number is a differentiator by itself.
 
@@ -99,7 +105,9 @@ This is the highest-leverage item on the entire list, because it resolves four s
 
 - [ ] **Build a review pipeline** — add a one-line review request to your after-visit photo email. Never offer a discount in exchange.
 - [ ] **Get listed** on Yelp and Nextdoor (free).
-- [ ] **Reach out to local funeral homes** for referral partnerships — a natural source of both leads and a legitimate backlink.
+- [ ] **Work the referral list — see `referral-outreach.md`** for who to approach, in what order, and ready-to-send emails for each. Priority order is **cemetery sextons → monument companies (yes, including your competitors) → funeral homes → genealogy groups → estate attorneys**. Do this *after* the Stage 1 weekend: walking in with before-and-after photos on your phone is a completely different conversation than describing a service with no completed work behind it. Don't offer cash for referrals.
+- [ ] **Get business cards** — about $20 for a hundred. Name, phone, website, one line: "Headstone cleaning · Utah County · Photos after every visit." You can't do the outreach above without them.
+- [ ] **Ask every customer where they heard about you** and log it in the orders spreadsheet. Within a couple of months this is what tells you which referral partners actually produce and which are merely polite.
 - [ ] **Keep resource article dates current** every few months; add new ones as real customer questions come up.
 - [ ] *(Revisit once revenue and reviews exist)* BBB accreditation (~$400–600+/yr) and Utah Valley Chamber of Commerce (~$1,500+/yr).
 
