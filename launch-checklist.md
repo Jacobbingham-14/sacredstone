@@ -53,15 +53,10 @@ This is the highest-leverage item on the entire list, because it resolves four s
 - [x] **Buy a domain** — `sacredheadstonecare.com`, registered at GoDaddy 6 Aug 2026.
 - [x] **Decide www vs non-www** — **non-www (`sacredheadstonecare.com`) is primary**, `www` redirects to it. Both are attached to the Vercel project.
 - [x] **Replace every `yourdomain.com` placeholder** — all 52 replaced across `llms.txt` (25), `sitemap.xml` (24), `robots.txt` (2), and `index.html` (1) on 7 Aug 2026. Zero remaining.
-- [~] **Point the domain at Vercel.** Both domains are added to project `sacredstone`. **Remaining: add the DNS records at GoDaddy** — this is the last step before the site is live on the real domain. Keep GoDaddy's nameservers; add these two records under Domain → DNS → Manage Zones:
+- [x] **Point the domain at Vercel — DONE, site is live on `https://sacredheadstonecare.com` as of 7 Aug 2026.** DNS stays on GoDaddy nameservers: one `A @ 76.76.21.21` record plus the existing `CNAME www → sacredheadstonecare.com`. GoDaddy's default WebsiteBuilder A record on `@` had to be deleted — it round-robined about two-thirds of traffic to a parking page.
+- [x] **`www` → non-www redirect confirmed working** (307 to the apex). `http` also 308s to `https`. Let's Encrypt cert issued 7 Aug 2026, auto-renewing.
 
-  | Type | Name | Value |
-  |---|---|---|
-  | A | `@` | `76.76.21.21` |
-  | A | `www` | `76.76.21.21` |
-
-  Delete any existing A record on `@` or `www` first (GoDaddy adds parking records automatically). Propagation is usually minutes; SSL issues on its own once DNS resolves. Verify with `vercel domains inspect sacredheadstonecare.com`.
-- [ ] **Set the `www` → non-www redirect** in the Vercel dashboard: project `sacredstone` → Settings → Domains → on `www.sacredheadstonecare.com` choose "Redirect to sacredheadstonecare.com" (307). Without this both forms serve the same content and split ranking signals.
+  **Deploying is a separate step from pushing.** `git push` to `master` only creates a *Preview* deployment on this project — the live domain keeps serving the old Production build. Always follow a push with `vercel --prod --yes`, then check `vercel ls sacredstone` shows the newest row as `Production`.
 - [x] **Clean-URL structure fixed sitewide (7 Aug 2026).** `vercel.json` sets `cleanUrls: true` and `trailingSlash: false`, but every internal link used `.html` and most `/resources` links had a trailing slash — so each one served a 308 redirect. All 260 internal links converted to root-absolute clean URLs (`/contact`, `/resources`, `/provo-headstone-cleaning`). Verified against `vercel dev`: all 24 internal URLs and all 22 sitemap URLs return 200 with no redirect hop.
 - [x] **Canonical tags added to all 22 indexable pages (7 Aug 2026).** Previously only `index.html` had any URL metadata at all (an `og:url`), and the four city pages plus 14 resource articles had none. The three `noindex` pages (`order`, `order-received`, `thank-you`) deliberately have no canonical — `noindex` plus `canonical` is a contradictory signal. Sitemap and canonical URL sets now match exactly, 22 for 22.
 - [ ] **Add the real before/after photos** to `#work` in `index.html`, replacing the illustration, and delete the "Illustration." caption line beneath it.
