@@ -86,11 +86,11 @@
   </form>
 
   <div class="contact-alt">
-    Prefer to talk it through? Call or text <a href="tel:+12089088362">(208) 908-8362</a>.
+    Prefer to talk it through? Call or text <a href="tel:+12089088362">(208) 908-8362</a>, or email <a href="mailto:sacredheadstonecare@gmail.com">sacredheadstonecare@gmail.com</a>.
   </div>
 </main>
 
-<footer>Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; Serving Utah County</footer>
+<footer>Sacred Stone Headstone Cleaning &middot; Provo, Utah &middot; (208) 908-8362 &middot; <a href="mailto:sacredheadstonecare@gmail.com">sacredheadstonecare@gmail.com</a> &middot; Serving Utah County</footer>
 
 <script>
   const navToggle = document.getElementById('navToggle');
@@ -113,7 +113,7 @@
     const next = document.createElement('input');
     next.type = 'hidden';
     next.name = '_next';
-    next.value = new URL('thank-you.html', location.href).href;
+    next.value = new URL('thank-you', location.href).href;
     document.getElementById('contactForm').appendChild(next);
   })();
 
