@@ -1,5 +1,5 @@
 # robots.txt for Sacred Stone Headstone Cleaning
-# Place this file at your domain root (e.g. https://yourdomain.com/robots.txt)
+# Place this file at your domain root (e.g. https://sacredheadstonecare.com/robots.txt)
 
 User-agent: *
 Allow: /
@@ -47,6 +47,6 @@ User-agent: CCBot
 Allow: /
 
 # -----------------------------------------------------
-# Sitemap — update once you have a real domain and sitemap.xml
+# Sitemap
 # -----------------------------------------------------
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://sacredheadstonecare.com/sitemap.xml

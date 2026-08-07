@@ -24,9 +24,9 @@ homepage-copy.md                        Early homepage copy draft (reference onl
 
 ## Before going live
 
-1. Buy a domain and point it at this Vercel project (or use the free `*.vercel.app` domain Vercel assigns automatically).
-2. Find-and-replace every `yourdomain.com` placeholder in `robots.txt`, `llms.txt`, and `sitemap.xml` with your real domain.
-3. Set up Stripe and replace the placeholder `href="#"` links on the pricing cards in `index.html` with your real Stripe Payment Links.
+1. ~~Buy a domain and point it at this Vercel project.~~ Done — `sacredheadstonecare.com` (GoDaddy), attached to the `sacredstone` Vercel project. DNS records still need to be added at the registrar; see `launch-checklist.md`.
+2. ~~Find-and-replace every `yourdomain.com` placeholder.~~ Done — all 52 replaced with `sacredheadstonecare.com`.
+3. There is no Stripe integration, by design — customers approve the work from before/after photos and pay afterward. That pay-after flow is a competitive advantage, not a gap; see the note at the top of `order.html`.
 4. See `launch-checklist.md` for the full pre-launch and pre-advertising checklist.
 
 ## Local preview
